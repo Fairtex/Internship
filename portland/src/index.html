@@ -9,19 +9,35 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Crimson+Text:400,400i&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/basics.css">
+
+    <link rel="stylesheet" href="css/components/forms.css">
+
+    <link rel="stylesheet" href="css/components/page-header.css">
+    <link rel="stylesheet" href="css/components/main-nav.css">
+    <link rel="stylesheet" href="css/components/sub-nav.css">
+    <link rel="stylesheet" href="css/components/banner.css">
+    <link rel="stylesheet" href="css/components/sort-form.css">
+    <link rel="stylesheet" href="css/components/sidebar.css">
+    <link rel="stylesheet" href="css/components/products.css">
+    <link rel="stylesheet" href="css/components/card.css">
+    <link rel="stylesheet" href="css/components/pagination.css">
+    <link rel="stylesheet" href="css/components/bestsellers.css">
+    <link rel="stylesheet" href="css/components/customers.css">
+    <link rel="stylesheet" href="css/components/page-footer.css">
+
     <title>Portland</title>
 </head>
 
 <body>
     <header class="page-header">
         <div class="container">
-            <div class="main-menu">
-                <div class="logo-box">
-                    <button type="button" class="main-menu__toggle"></button>
-                    <img src="assets/logo.png" alt="Portland" class="main-menu__logo" width="92" height="25">
+            <div class="page-header__first">
+                <div class="page-header__logo-box">
+                    <button type="button" class="page-header__toggle"></button>
+                    <img src="assets/logo.png" alt="Portland" class="page-header__logo" width="92" height="25">
                 </div>
-                <nav class="main-nav">
+                <nav class="main-nav page-header__main-nav">
                     <ul class="main-nav__list">
                         <li class="main-nav__item">
                             <a href="#" class="main-nav__link">
@@ -50,17 +66,17 @@
                         </li>
                     </ul>
                 </nav>
-                <div class="user-block">
-                    <a href="#" class="user-cart">
-                        Cart <span class="user-cart__counter">0</span>
+                <div class="page-header__user-block">
+                    <a href="#" class="page-header__cart">
+                        Cart <span class="page-header__cart-counter">0</span>
                     </a>
-                    <a href="" class="user-sign-in">
+                    <a href="#" class="page-header__sign-in button">
                         Sign in
                     </a>
                 </div>
             </div>
-            <div class="sub-menu">
-                <nav class="sub-nav">
+            <div class="page-header__second">
+                <nav class="sub-nav page-header__sub-nav">
                     <ul class="sub-nav__list">
                         <li class="sub-nav__item">
                             <a href="#" class="sub-nav__link">
@@ -73,7 +89,7 @@
                             </a>
                         </li>
                         <li class="sub-nav__item">
-                            <a href="#" class="sub-nav__link sub-nav__link--active">
+                            <a href="#" class="sub-nav__link">
                                 Hi-tech
                             </a>
                         </li>
@@ -87,13 +103,16 @@
                                 Projects
                             </a>
                         </li>
+                        <li class="sub-nav__item">
+                            <a href="#" class="sub-nav__link sub-nav__link--support">
+                                Support
+                            </a>
+                        </li>
                     </ul>
                 </nav>
-                <div class="support-box">
-                    <a href="#" class="support-box__link">
-                        Support
-                    </a>
-                    <input type="search" name="search" class="support-box__search" placeholder="I'm looking for...">
+                <div class="search-block header__search">
+                    <input type="search" name="search" class="search-block__search input--type--search"
+                        placeholder="I'm looking for...">
                 </div>
             </div>
         </div>
@@ -112,313 +131,574 @@
                     Buy now
                 </a>
             </div>
-            <div class="banner__controls">
-                <a href="#" class="banner__dot"></a>
-                <a href="#" class="banner__dot"></a>
-                <a href="#" class="banner__dot"></a>
-                <a href="#" class="banner__dot"></a>
-            </div>
+            <ul class="banner__controls">
+                <li class="banner__dot"></li>
+                <li class="banner__dot"></li>
+                <li class="banner__dot"></li>
+                <li class="banner__dot"></li>
+            </ul>
             <div class="banner__arrows">
-                <a href="#" class="banner__prev"></a>
-                <a href="#" class="banner__next"></a>
+                <button type="button" class="banner__prev"></button>
+                <button type="button" class="banner__next"></button>
             </div>
         </div>
     </section>
     <main class="page-main">
-        <div class="container page-main__layout">
-            <aside class="sort">
-                <nav class="sort-nav">
+        <div class="container">
+            <aside class="products__sorting">
+                <form action="#" class="sorting-form" id="sort-form">
                     <div class="sort-by">
-                        <span class="sort__label sort-by__label">
+                        <label class="sorting-form__label" for="sort-select">
                             Sort by:
-                        </span>
-                        <a href="#" class="sort__link sort-by__link">
-                            Best match
-                        </a>
+                        </label>
+                        <select name="sorting-by" id="sort-select" class="sorting-form__select" form="sort-form">
+                            <option value="best-match">Best match</option>
+                        </select>
                     </div>
                     <div class="sort-keywords">
-                        <label for="keywords-input" class="sort__label sort-keywords__label">
+                        <label for="keywords-input" class="sorting-form__label">
                             Keywords
                         </label>
-                        <input type="text" name="keywords" id="keywords-input" class="sort__input sort-keywords__input"
-                            placeholder="Tablet">
+                        <input type="text" name="keywords" id="keywords-input"
+                            class="sorting-form__input sort-keywords__input" placeholder="Tablet">
                     </div>
                     <div class="sort-price">
-                        <label for="price-input-min" class="sort__label sort-price__label">
+                        <label for="price-input-min" class="sorting-form__label">
                             Price
                         </label>
-                        <input type="number" name="price-min" id="price-input-min" class="sort__input sort-price__input"
-                            value="10">
+                        <input type="number" name="price-min" id="price-input-min"
+                            class="sorting-form__input sort-price__input" value="10">
                         <span class="dash"> - </span>
-                        <input type="number" name="price-max" id="price-input-max" class="sort__input sort-price__input"
-                            value="1000">
+                        <input type="number" name="price-max" id="price-input-max"
+                            class="sorting-form__input sort-price__input" value="1000">
                     </div>
                     <div class="sort-shipping">
-                        <input type="checkbox" name="shipping-check" id="shipping-check" class="sort-shipping__checkbox"
+                        <input type="checkbox" name="shipping-check" id="shipping-check" class="sorting-form__checkbox"
                             value="free-shipping" checked>
                         <label for="shipping-check" class="sort-shipping__label">
                             Free Shipping
                         </label>
                     </div>
                     <div class="sort-ship">
-                        <span class="sort__label sort-ship__label">
-                            Sort by:
-                        </span>
-                        <a href="#" class="sort__link sort-ship__link">
-                            USA
-                        </a>
+                        <label class="sorting-form__label" for="ship-select">
+                            Ship to:
+                        </label>
+                        <select name="ship-to" id="ship-select" class="sorting-form__select" form="sort-form">
+                            <option value="USA">USA</option>
+                            <option value="Canada">Canada</option>
+                        </select>
                     </div>
-                </nav>
+                </form>
             </aside>
-            <aside class="sidebar">
-                <nav class="sidebar-navigation">
-                    <ul class="sidebar-category">
-                        <li class="sidebar-category__item">
-                            <a href="#" class="sidebar-category__link">
-                                Top Sales
-                            </a>
-                        </li>
-                        <li class="sidebar-category__item">
-                            <a href="#" class="sidebar-category__link">
-                                Brand Focus
-                            </a>
-                        </li>
-                        <li class="sidebar-category__item">
-                            <a href="#" class="sidebar-category__link">
-                                Hi-Tech
-                            </a>
-                            <ul class="category-sublist">
-                                <li class="category-sublist__item">
-                                    <a href="#" class="category-sublist__link">
-                                        cell phones
-                                    </a>
-                                </li>
-                                <li class="category-sublist__item">
-                                    <a href="#" class="category-sublist__link">
-                                        cameras
-                                    </a>
-                                </li>
-                                <li class="category-sublist__item">
-                                    <a href="#" class="category-sublist__link">
-                                        computers
-                                    </a>
-                                </li>
-                                <li class="category-sublist__item">
-                                    <a href="#" class="category-sublist__link">
-                                        tv, audio
-                                    </a>
-                                </li>
-                                <li class="category-sublist__item">
-                                    <a href="#" class="category-sublist__link">
-                                        video games
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="sidebar-category__item">
-                            <a href="#" class="sidebar-category__link">
-                                Home
-                            </a>
-                        </li>
-                        <li class="sidebar-category__item">
-                            <a href="#" class="sidebar-category__link">
-                                Sale
-                            </a>
-                        </li>
-                    </ul>
-                    <div class="sidebar-brands">
-                        <span class="sidebar-brands__title">
-                            Available
-                        </span>
-                        <div class="sidebar-brands__item">
-                            <input type="radio" id="storage" name="available" class="sidebar__radio" value="in-storage"
-                                checked>
-                            <label for="storage" class="sidebar__label">
-                                In Storage
+            <div class="products-grid">
+                <aside class="sidebar products__filters">
+                    <nav class="sidebar-navigation">
+                        <ul class="sidebar-category">
+                            <li class="sidebar-category__item">
+                                <a href="#" class="sidebar-category__link">
+                                    Top Sales
+                                </a>
+                                <button type="button"></button>
+                            </li>
+                            <li class="sidebar-category__item">
+                                <a href="#" class="sidebar-category__link">
+                                    Brand Focus
+                                </a>
+                                <button type="button"></button>
+                            </li>
+                            <li class="sidebar-category__item">
+                                <a href="#" class="sidebar-category__link">
+                                    Hi-Tech
+                                </a>
+                                <button type="button"></button>
+                                <ul class="category-sublist">
+                                    <li class="category-sublist__item">
+                                        <a href="#" class="category-sublist__link">
+                                            cell phones
+                                        </a>
+                                    </li>
+                                    <li class="category-sublist__item">
+                                        <a href="#" class="category-sublist__link">
+                                            cameras
+                                        </a>
+                                    </li>
+                                    <li class="category-sublist__item">
+                                        <a href="#" class="category-sublist__link">
+                                            computers
+                                        </a>
+                                    </li>
+                                    <li class="category-sublist__item">
+                                        <a href="#" class="category-sublist__link">
+                                            tv, audio
+                                        </a>
+                                    </li>
+                                    <li class="category-sublist__item">
+                                        <a href="#" class="category-sublist__link">
+                                            video games
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="sidebar-category__item">
+                                <a href="#" class="sidebar-category__link">
+                                    Home
+                                </a>
+                                <button type="button"></button>
+                            </li>
+                            <li class="sidebar-category__item">
+                                <a href="#" class="sidebar-category__link">
+                                    Sale
+                                </a>
+                                <button type="button"></button>
+                            </li>
+                        </ul>
+                    </nav>
+                    <form action="#" class="sidebar__form">
+                        <fieldset class="sidebar-brands">
+                            <span class="sidebar__title">
+                                Available
+                            </span>
+                            <div class="sidebar__item">
+                                <input type="radio" id="storage" name="available" class="sidebar__radio"
+                                    value="in-storage" checked>
+                                <label for="storage" class="sidebar__label">
+                                    In Storage
+                                </label>
+                                <span class="sidebar__counter">
+                                    45
+                                </span>
+                            </div>
+                            <div class="sidebar__item">
+                                <input type="radio" id="online-shop" name="available" class="sidebar__radio"
+                                    value="in-online">
+                                <label for="online-shop" class="sidebar__label">
+                                    In Storage
+                                </label>
+                                <span class="sidebar__counter">
+                                    12
+                                </span>
+                            </div>
+                            <div class="sidebar__title-block">
+                                <span class="sidebar__title">
+                                    Brands
+                                </span>
+                                <a href="#" class="sidebar__link">
+                                    all
+                                </a>
+                            </div>
+                            <div class="sidebar__item">
+                                <input type="checkbox" id="apple" name="brands" class="sidebar__checkbox" value="apple"
+                                    checked>
+                                <label for="apple" class="sidebar__label">
+                                    Apple
+                                </label>
+                                <span class="sidebar__counter">
+                                    32
+                                </span>
+                            </div>
+                            <div class="sidebar__item">
+                                <input type="checkbox" id="JBL" name="brands" class="sidebar__checkbox" value="jbl">
+                                <label for="JBL" class="sidebar__label">
+                                    JBL
+                                </label>
+                                <span class="sidebar__counter">
+                                    14
+                                </span>
+                            </div>
+                            <div class="sidebar__item">
+                                <input type="checkbox" id="Bose" name="brands" class="sidebar__checkbox" value="bose">
+                                <label for="Bose" class="sidebar__label">
+                                    Bose
+                                </label>
+                                <span class="sidebar__counter">
+                                    3
+                                </span>
+                            </div>
+                            <div class="sidebar__item">
+                                <input type="checkbox" id="Nest" name="brands" class="sidebar__checkbox" value="nest">
+                                <label for="Nest" class="sidebar__label">
+                                    Nest
+                                </label>
+                                <span class="sidebar__counter">
+                                    5
+                                </span>
+                            </div>
+                        </fieldset>
+                        <fieldset class="sidebar-conditions">
+                            <div class="sidebar__title-block">
+                                <span class="sidebar__title">
+                                    Condition
+                                </span>
+                                <a href="#" class="sidebar__link">
+                                    all
+                                </a>
+                            </div>
+                            <input type="checkbox" id="New" name="condition" class="sidebar__checkbox" value="new">
+                            <label for="New" class="sidebar__label">
+                                New
                             </label>
-                            <span class="sidebar__counter">
-                                45
-                            </span>
-                        </div>
-                        <div class="sidebar-brands__item">
-                            <input type="radio" id="online-shop" name="available" class="sidebar__radio"
-                                value="in-online">
-                            <label for="online-shop" class="sidebar__label">
-                                In Storage
+                            <input type="checkbox" id="Manufacrurer" name="condition" class="sidebar__checkbox"
+                                value="manufacrurer-ref">
+                            <label for="Manufacrurer" class="sidebar__label">
+                                Manufacrurer refurbished
                             </label>
-                            <span class="sidebar__counter">
-                                12
-                            </span>
-                        </div>
-                        <div class="sidebar-brands__title-block">
-                            <span class="sidebar-brands__title">
-                                Brands
-                            </span>
-                            <a href="#" class="sidebar__link">
-                                all
-                            </a>
-                        </div>
-                        <div class="sidebar-brands__item">
-                            <input type="checkbox" id="apple" name="brands" class="sidebar__checkbox" value="apple"
-                                checked>
-                            <label for="apple" class="sidebar__label">
-                                Apple
+                            <input type="checkbox" id="Seller" name="condition" class="sidebar__checkbox"
+                                value="seller-ref">
+                            <label for="Seller" class="sidebar__label">
+                                Seller refurbished
                             </label>
-                            <span class="sidebar__counter">
-                                32
-                            </span>
-                        </div>
-                        <div class="sidebar-brands__item">
-                            <input type="checkbox" id="JBL" name="brands" class="sidebar__checkbox" value="JBL">
-                            <label for="JBL" class="sidebar__label">
-                                JBL
+                            <input type="checkbox" id="Used" name="condition" class="sidebar__checkbox" value="used">
+                            <label for="Used" class="sidebar__label">
+                                Used
                             </label>
-                            <span class="sidebar__counter">
-                                14
-                            </span>
-                        </div>
-                        <div class="sidebar-brands__item">
-                            <input type="checkbox" id="Bose" name="brands" class="sidebar__checkbox" value="Bose">
-                            <label for="Bose" class="sidebar__label">
-                                Bose
+                            <input type="checkbox" id="Not-working" name="condition" class="sidebar__checkbox"
+                                value="not-working">
+                            <label for="Not-working" class="sidebar__label">
+                                For Parts or not Working
                             </label>
-                            <span class="sidebar__counter">
-                                3
+                        </fieldset>
+                        <fieldset class="sidebar-delivery">
+                            <span class="sidebar__title">
+                                Delivery options
                             </span>
+                            <div class="sidebar__item">
+                                <input type="radio" id="free" name="delivery" class="sidebar__radio" value="free">
+                                <label for="free" class="sidebar__label">
+                                    Free
+                                </label>
+                                <input type="radio" id="money" name="delivery" class="sidebar__radio" value="4.99">
+                                <label for="money" class="sidebar__label">
+                                    4.99$
+                                </label>
+                            </div>
+                        </fieldset>
+                    </form>
+                </aside>
+                <section class="products__list">
+                    <h2 class="products__title visually-hidden">
+                        Portland products
+                    </h2>
+                    <div class="products__item card">
+                        <div class="card__img-block">
+                            <img src="assets/img/apple-tv.png" alt="apple-tv" class="card__image">
                         </div>
-                        <div class="sidebar-brands__item">
-                            <input type="checkbox" id="Nest" name="brands" class="sidebar__checkbox" value="Nest">
-                            <label for="Nest" class="sidebar__label">
-                                Nest
-                            </label>
-                            <span class="sidebar__counter">
-                                5
-                            </span>
+                        <div class="card__content">
+                            <span class="card__name">Apple TV 32GB</span>
+                            <span class="card__color">Black</span>
+                            <span class="card__price">$49.99</span>
                         </div>
                     </div>
-                    <div class="sidebar-conditions">
-                        <div class="sidebar-conditions__title-block">
-                            <span class="sidebar-conditions__title">
-                                Condition
-                            </span>
-                            <a href="#" class="sidebar__link">
-                                all
-                            </a>
+                    <div class="products__item card">
+                        <div class="card__img-block">
+                            <img src="assets/img/pebble.png" alt="Pebble time" class="card__image">
                         </div>
-                        <div class="sidebar-conditions__item">
-                            <input type="checkbox" id="New" name="brands" class="sidebar__checkbox" value="New">
-                            <label for="New" class="sidebar__label">
-                                New
-                            </label>
-                            <span class="sidebar__counter">
-                                5
-                            </span>
+                        <div class="card__content">
+                            <span class="card__name">Pebble Time</span>
+                            <span class="card__color">Red</span>
+                            <span class="card__price">$29.99</span>
                         </div>
-                        <div class="sidebar-conditions__item">
-                            <input type="checkbox" id="New" name="brands" class="sidebar__checkbox" value="New">
-                            <label for="New" class="sidebar__label">
-                                New
-                            </label>
-                            <span class="sidebar__counter">
-                                5
-                            </span>
-                        </div>
-                        <div class="sidebar-conditions__item">
-                            <input type="checkbox" id="New" name="brands" class="sidebar__checkbox" value="New">
-                            <label for="New" class="sidebar__label">
-                                New
-                            </label>
-                            <span class="sidebar__counter">
-                                5
-                            </span>
-                        </div>
-                        <div class="sidebar-conditions__item">
-                            <input type="checkbox" id="New" name="brands" class="sidebar__checkbox" value="New">
-                            <label for="New" class="sidebar__label">
-                                New
-                            </label>
-                            <span class="sidebar__counter">
-                                5
-                            </span>
-                        </div>
-                        <div class="sidebar-conditions__item">
-                            <input type="checkbox" id="New" name="brands" class="sidebar__checkbox" value="New">
-                            <label for="New" class="sidebar__label">
-                                New
-                            </label>
-                            <span class="sidebar__counter">
-                                5
-                            </span>
-                        </div>
-                    </div>
-                    <div class="sidebar-delivery">
-                        <span class="sidebar-delivery__title">
-                            Delivery options
-                        </span>
-                        <div class="sidebar-delivery__item">
-                            <input type="radio" id="free" name="delivery" class="sidebar__radio" value="free">
-                            <label for="free" class="sidebar__label">
-                                Free
-                            </label>
-                            <input type="radio" id="money" name="delivery" class="sidebar__radio" value="4.99">
-                            <label for="money" class="sidebar__label">
-                                4.99$
-                            </label>
-                        </div>
-                    </div>
-                </nav>
-            </aside>
-            <section class="goods">
-                <h2 class="goods__title visually-hidden">
-                    Portland goods
-                </h2>
-                <ul class="goods__list">
-                    <li class="goods__item">
 
-                    </li>
-                </ul>
-            </section>
-            <div class="paginations">
-                <a href="#" class="paginations__prev"></a>
-                <div class="paginations__numbers">
-                    <a href="" class="paginations__number">1</a>
-                    <a href="" class="paginations__number">2</a>
-                    <a href="" class="paginations__number">3</a>
-                    <a href="" class="paginations__number paginations__number--active">4</a>
-                    <a href="" class="paginations__number">5</a>
-                    <a href="" class="paginations__number">6</a>
-                    <a href="" class="paginations__number">7</a>
-                    <a href="" class="paginations__number">8</a>
-                </div>
-                <a href="#" class="paginations__next"></a>
+                    </div>
+                    <div class="products__item card">
+                        <div class="card__img-block">
+                            <img src="assets/img/zendure.png" alt="Zendure port" class="card__image">
+                        </div>
+                        <div class="card__content">
+                            <span class="card__name">Zendure 4-Port USB</span>
+                            <span class="card__color">White</span>
+                            <span class="card__price">$49.99</span>
+                        </div>
+
+                    </div>
+                    <div class="products__item card">
+                        <div class="card__img-block">
+                            <img src="assets/img/body-analyzer.png" alt="Body analyzer" class="card__image">
+                        </div>
+                        <div class="card__content">
+                            <span class="card__name">Withings Smart Body Analyzer ws-50</span>
+                            <span class="card__color">Black</span>
+                            <span class="card__price">$39.99</span>
+                        </div>
+
+                    </div>
+                    <div class="products__item products__item--extra card card--extra">
+                        <div class="card__img-block">
+                            <img src="assets/img/jbl-charge.png" alt="JBL charge" class="card__image">
+                        </div>
+                        <div class="card__content">
+                            <span class="card__price--extra">$39.99</span>
+                            <div class="card__name-block">
+                                <span class="card__name">JBL Charge 2+</span>
+                                <span class="card__color">Black</span>
+                            </div>
+                            <div class="card__button button-group">
+                                <span class="card__character button-group__item">16 GB</span>
+                                <a href="#" class="card__buy-link button-group__item">Buy now</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="products__item card">
+                        <div class="card__img-block">
+                            <img src="assets/img/olloclip.png" alt="Ollo clip" class="card__image">
+                        </div>
+                        <div class="card__content">
+                            <span class="card__name">Ollo Clip New</span>
+                            <span class="card__color">Silver</span>
+                            <span class="card__price">$19.99</span>
+                        </div>
+                    </div>
+                    <div class="products__item card">
+                        <div class="card__img-block">
+                            <img src="assets/img/fitbit.png" alt="Fitbit" class="card__image">
+                        </div>
+                        <div class="card__content">
+                            <span class="card__name">Fitbit Charge HR Heart Rate and Activity Tracker</span>
+                            <span class="card__color">Black</span>
+                            <span class="card__price">$19.99</span>
+                        </div>
+
+                    </div>
+                    <div class="products__item card">
+                        <div class="card__img-block">
+                            <img src="assets/img/apple-watch.png" alt="Apple Watch" class="card__image">
+                        </div>
+                        <div class="card__content">
+                            <span class="card__name">Apple Watch Sport 38mm Silver Aluminum Case</span>
+                            <span class="card__color">White</span>
+                            <span class="card__price">$49.99</span>
+                        </div>
+
+                    </div>
+                    <div class="products__item card">
+                        <div class="card__img-block">
+                            <img src="assets/img/bose-soundlink.png" alt="Bose Soundlink" class="card__image">
+                        </div>
+                        <div class="card__content">
+                            <span class="card__name">Bose Soundlink On-Ear Headphones</span>
+                            <span class="card__color">White</span>
+                            <span class="card__price">$119.99</span>
+                        </div>
+
+                    </div>
+                    <div class="products__item card">
+                        <div class="card__img-block">
+                            <img src="assets/img/sonos-play.png" alt="Sonos Play-1" class="card__image">
+                        </div>
+                        <div class="card__content">
+                            <span class="card__name">Sonos Play-1 Wireless Hifi System</span>
+                            <span class="card__color">Black</span>
+                            <span class="card__price">$99.99</span>
+                        </div>
+
+                    </div>
+                    <div class="products__item card card--new">
+                        <div class="card__img-block">
+                            <img src="assets/img/nest-thermostat.png" alt="Nest Thermostat" class="card__image">
+                        </div>
+                        <div class="card__content">
+                            <span class="card__name">Nest Learning Thermostat 3rd Generation</span>
+                            <span class="card__price">$49.99</span>
+                        </div>
+                    </div>
+                </section>
             </div>
-            <section class="bestsellers">
+            <nav class="pagination">
+                <button type="button" class="pagination__prev"></button>
+                <div class="pagination__numbers">
+                    <a href="#" class="pagination__number">1</a>
+                    <a href="#" class="pagination__number">2</a>
+                    <a href="#" class="pagination__number">3</a>
+                    <a href="#" class="pagination__number">4</a>
+                    <a href="#" class="pagination__number">5</a>
+                    <a href="#" class="pagination__number">6</a>
+                    <a href="#" class="pagination__number">7</a>
+                    <a href="#" class="pagination__number">8</a>
+                </div>
+                <button type="button" class="pagination__next"></button>
+            </nav>
+            <article class="bestsellers">
                 <h2 class="bestsellers__title">
                     Best sellers
                 </h2>
                 <ul class="bestsellers__list">
-                    <li class="bestsellers__item"></li>
+                    <li class="bestsellers__item">
+                        <div class="card">
+                            <div class="card__img-block">
+                                <img src="assets/img/beanie.png" alt="beanie" class="card__image">
+                            </div>
+                            <div class="card__content">
+                                <span class="card__name">Beanie</span>
+                                <span class="card__color">Green</span>
+                                <div class="card__discount">
+                                    <span class="card__price card__price--old">£39.99</span>
+                                    <span class="card__price card__price--new">£29.99</span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="bestsellers__item">
+                        <div class="card">
+                            <div class="card__img-block">
+                                <img src="assets/img/beanie.png" alt="beanie" class="card__image">
+                            </div>
+                            <div class="card__content">
+                                <span class="card__name">Beanie</span>
+                                <span class="card__color">Green</span>
+                                <div class="card__discount">
+                                    <span class="card__price card__price--old">£39.99</span>
+                                    <span class="card__price card__price--new">£29.99</span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="bestsellers__item">
+                        <div class="card">
+                            <div class="card__img-block">
+                                <img src="assets/img/beanie.png" alt="beanie" class="card__image">
+                            </div>
+                            <div class="card__content">
+                                <span class="card__name">Beanie</span>
+                                <span class="card__color">Green</span>
+                                <div class="card__discount">
+                                    <span class="card__price card__price--old">£39.99</span>
+                                    <span class="card__price card__price--new">£29.99</span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="bestsellers__item">
+                        <div class="card">
+                            <div class="card__img-block">
+                                <img src="assets/img/beanie.png" alt="beanie" class="card__image">
+                            </div>
+                            <div class="card__content">
+                                <span class="card__name">Beanie</span>
+                                <span class="card__color">Green</span>
+                                <div class="card__discount">
+                                    <span class="card__price card__price--old">£39.99</span>
+                                    <span class="card__price">£29.99</span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
                 </ul>
-            </section>
+            </article>
         </div>
     </main>
-    <section class="comments">
+    <article class="customers">
         <div class="container">
-            <h2 class="comments__title">
+            <h2 class="customers__title">
                 What our customers have to say
             </h2>
-            <span class="comments__subtitle">
+            <div class="customers__subtitle">
                 Couple of Words About this stories section
-            </span>
-            <div class="comments__layout">
-                <article class="comments__item">
-
-                </article>
+            </div>
+            <ul class="customers__list">
+                <li class="customers__item">
+                    <div class="customers__info">
+                        <img src="assets/img/user-1.png" alt="user" class="customers__userpic">
+                        <div class="customers__personal">
+                            <span class="customers__name">Celia Fields</span>
+                            <span class="customers__prof">UX Expert</span>
+                        </div>
+                    </div>
+                    <blockquote class="customers__review">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis numquam expedita consequatur?
+                        Vero, eius ut sunt debitis, illo, repellat velit autem facere nihil adipisci quam veritatis
+                        eveniet tempora sequi rerum!
+                    </blockquote>
+                </li>
+                <li class="customers__item">
+                    <div class="customers__info">
+                        <img src="assets/img/user-2.png" alt="user" class="customers__userpic">
+                        <div class="customers__personal">
+                            <span class="customers__name">Celia Fields</span>
+                            <span class="customers__prof">UX Expert</span>
+                        </div>
+                    </div>
+                    <blockquote class="customers__review">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis numquam expedita consequatur?
+                        Vero, eius ut sunt debitis, illo, repellat velit autem facere nihil adipisci quam veritatis
+                        eveniet tempora sequi rerum!
+                    </blockquote>
+                </li>
+                <li class="customers__item">
+                    <div class="customers__info">
+                        <img src="assets/img/user-3.png" alt="user" class="customers__userpic">
+                        <div class="customers__personal">
+                            <span class="customers__name">Celia Fields</span>
+                            <span class="customers__prof">UX Expert</span>
+                        </div>
+                    </div>
+                    <blockquote class="customers__review">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis numquam expedita consequatur?
+                        Vero, eius ut sunt debitis, illo, repellat velit autem facere nihil adipisci quam veritatis
+                        eveniet tempora sequi rerum!
+                    </blockquote>
+                </li>
+            </ul>
+        </div>
+    </article>
+    <footer class="page-footer">
+        <div class="container">
+            <div class="page-footer__first">
+                <img src="assets/footer-logo.png" alt="logo" class="page-footer__logo">
+                <nav class="page-footer__nav">
+                    <ul class="page-footer__list">
+                        <li class="page-footer__item">
+                            <a href="#" class="page-footer__link">
+                                Home
+                            </a>
+                        </li>
+                        <li class="page-footer__item">
+                            <a href="#" class="page-footer__link">
+                                Shop
+                            </a>
+                        </li>
+                        <li class="page-footer__item">
+                            <a href="#" class="page-footer__link">
+                                Team
+                            </a>
+                        </li>
+                        <li class="page-footer__item">
+                            <a href="#" class="page-footer__link">
+                                About us
+                            </a>
+                        </li>
+                        <li class="page-footer__item">
+                            <a href="#" class="page-footer__link">
+                                Contacts
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="page-footer__social">
+                    <a href="#" class="page-footer__social-link page-footer__social-link--twitter">
+                        <img src="assets/twitter-icon.svg" alt="twitter" class="page-footer__social-icon">
+                    </a>
+                    <a href="#" class="page-footer__social-link page-footer__social-link--fb">
+                        <img src="assets/facebook-icon.svg" alt="facebook" class="page-footer__social-icon">
+                    </a>
+                    <a href="#" class="page-footer__social-link page-footer__social-link--google">
+                        <img src="assets/google-icon.svg" alt="google" class="page-footer__social-icon">
+                    </a>
+                </div>
+            </div>
+            <div class="page-footer__second">
+                <blockquote class="page-footer__citation">
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cum modi rem, atque numquam sequi ratione
+                    inventore laudantium sed excepturi doloremque fugit
+                </blockquote>
+                <div class="page-footer__rights">
+                    <a href="#" class="page-footer__rights-link">
+                        Privacy policy
+                    </a>
+                    <a href="#" class="page-footer__rights-link">
+                        Terms and conditions
+                    </a>
+                </div>
             </div>
         </div>
-    </section>
-    <footer class="page-footer">
-        
     </footer>
 </body>
 
