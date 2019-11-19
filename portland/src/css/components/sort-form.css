@@ -1,0 +1,43 @@
+.sorting-form {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 56px;
+}
+
+.sorting-form__label {
+    font-size: 0.687rem;
+    color: #b8bdcd;
+    text-transform: uppercase;
+}
+
+.sorting-form__select {
+    border: none;
+    font-size: 0.687rem;
+    color: #343e5c;
+    text-transform: uppercase;
+}
+
+.sorting-form__input {
+    border: 1px solid #e3e8f0;
+    border-radius: 15px;
+    background-color: f0f2f7;
+
+    padding: 9px 14px 8px; 
+
+    font-size: 0.812rem;
+    color: #343e5c;
+}
+.sorting-form__input::placeholder {
+    font-size: 0.812rem;
+    color: #b9bfd3;
+}
+
+.sort-keywords__input {
+    width: 163px;
+}
+
+.sort-price__input {
+    width: 64px;
+    padding-right: 0;
+}

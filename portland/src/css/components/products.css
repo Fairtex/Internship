@@ -1,0 +1,41 @@
+.page-main {
+    background-color: #e4e5e7;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.products__sorting {
+    width: 100%;
+    background-color: #ffffff;
+    border-radius: 3px;
+    padding: 0 20px;
+    margin-bottom: 30px;
+}
+
+.products-grid {
+    display: flex;
+}
+
+.products__filters {
+    flex-basis: 270px;
+    margin-right: 30px;
+}
+
+.products__list {
+    flex-basis: 870px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.products__item {
+    flex-basis: 270px;
+    margin-bottom: 30px;
+    min-height: 380px;
+}
+
+.products__item--extra {
+    flex-basis: 570px;
+
+}
+

@@ -1,0 +1,28 @@
+.main-nav__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    display: flex;
+    align-items: center;
+}
+
+.main-nav__item {
+    margin-right: 30px;
+}
+
+.main-nav__item:last-of-type {
+    margin-right: 0;
+}
+
+.main-nav__link {
+    text-decoration: none;
+    color: #343e5c;
+    text-transform: capitalize;
+}
+.main-nav__link:hover {
+    text-decoration: underline;
+}
+.main-nav__link:active {
+    color: #0032B1;
+}

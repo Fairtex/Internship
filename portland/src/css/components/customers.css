@@ -1,0 +1,33 @@
+.customers {
+    background-color: #ffffff;
+    padding-top: 65px;
+    padding-bottom: 55px;
+}
+
+.customers__title {
+    margin: 0;
+    margin-bottom: 15px;
+    padding: 0;
+    text-align: center;
+
+    font-size: 2rem;
+    font-weight: 900;
+    color: #222328;
+}
+
+.customers__subtitle {
+    text-align: center;
+    margin-bottom: 40px;
+
+    font-family: 'Crimson Text', 'Times New Roman', serif;
+    font-style: italic;
+    font-size: 1rem;
+    color: #b9bed1;
+}
+
+.customers__list {
+    display: flex;
+    margin: 0;
+    padding: 0 100px;
+    list-style: none;
+}

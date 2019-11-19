@@ -1,0 +1,25 @@
+.sidebar-navigation,
+.sidebar-brands,
+.sidebar-conditions,
+.sidebar-delivery {
+    background-color: #ffffff;
+    margin-bottom: 30px;
+    border-radius: 3px;
+}
+
+.sidebar-category {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.sidebar-brands,
+.sidebar-conditions,
+.sidebar-delivery {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+
+    border: none;
+}

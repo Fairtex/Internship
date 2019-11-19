@@ -1,0 +1,35 @@
+.sub-nav__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    display: flex;
+    align-items: center;
+}
+
+.sub-nav__item {
+    margin-right: 27px;
+}
+
+.sub-nav__item:last-of-type {
+    margin-right: 0;
+    margin-left: auto;
+}
+
+.sub-nav__link {
+    font-size: 0.687rem;
+    color: #b9bed1;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.sub-nav__link:hover {
+    text-decoration: underline;
+}
+.sub-nav__link:active {
+    color: #343e5c;
+}
+
+.sub-nav__link--support {
+   margin-left: auto;
+}

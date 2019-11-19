@@ -1,0 +1,11 @@
+.pagination {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 70px;
+    min-height: 90px;
+    margin-bottom: 50px;
+
+    background-color: #ffffff;
+    border-radius: 3px;
+}

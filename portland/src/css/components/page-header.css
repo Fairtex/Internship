@@ -1,0 +1,138 @@
+.page-header {
+    background-color: #ffffff;
+}
+
+.page-header__first {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 90px;
+}
+
+.page-header__logo-box {
+    display: flex;
+    align-items: center;
+    flex-basis: 200px;
+}
+
+.page-header__toggle {
+    position: relative;
+
+    border: none;
+    background-color: transparent;
+    width: 20px;
+    height: 14px;
+    margin-right: 74px;
+
+    cursor: pointer;
+}
+
+.page-header__toggle::before {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 20px;
+    height: 2px;
+
+    background-color: #000000;
+
+    box-shadow: 0 6px 0 0 #000000, 0 12px 0 0 #000000;
+}
+
+.page-header__second {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 56px;
+}
+
+.page-header__user-block {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-basis: 205px;
+}
+
+.page-header__cart {
+    position: relative;
+    padding-left: 26px;
+    margin-right: 36px;
+
+    font-size: 0.687rem;
+    color: #343e5c;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.page-header__cart:hover {
+    opacity: 0.6;
+}
+.page-header__cart:active {
+    color: #000000;
+}
+
+.page-header__cart::before {
+    content: "";
+
+    position: absolute;
+    top: -2px;
+    left: 0;
+
+    width: 18px;
+    height: 17px;
+
+    background: url(../../assets/cart.png) no-repeat center;
+}
+
+.page-header__cart-counter {
+    position: relative;
+    display: inline-block;
+    margin-left: 16px;
+    z-index: 1;
+}
+
+.page-header__cart-counter::before {
+    content: "";
+
+    position: absolute;
+    top: -5px;
+    left: -9px;
+
+    width: 24px;
+    height: 24px;
+    background-color: #e3e8f0;
+    border-radius: 50%;
+
+    z-index: -1;
+}
+
+.page-header__sub-nav {
+    width: 100%;
+}
+
+.search-block {
+    position: relative;
+    padding-left: 26px;
+    margin-left: 54px;
+}
+
+.search-block::before {
+    content: "";
+
+    position: absolute;
+    top: 1px;
+    left: 1px;
+
+    width: 13px;
+    height: 13px;
+
+    background: url("../../assets/search.png") no-repeat center;
+}
+
+.search-block__search {
+    width: 150px;
+    padding: 0;
+}
