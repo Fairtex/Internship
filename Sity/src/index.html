@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sity</title>
+</head>
+
+<body>
+    <header class="page-header">
+        <div class="container">
+            <div class="top-header">
+                <div class="page-header__logo-box">
+                    <button class="page-header__toggle"></button>
+                    <img src="assets/img/logo.svg" alt="Sity" width="53" height="37" class="page-header__logo">
+                </div>
+                <div class="page-header__menu">
+                    <div class="page-header__filters header-filters">
+                        <div class="header-filters__search-box">
+                            <input type="search" class="header-filters__search" placeholder="Search New York">
+                        </div>
+                        <select name="city" id="select-city" class="header-filters__select">
+                            <option value="NY">New York</option>
+                            <option value="LA">Los Angeles</option>
+                            <option value="SJ">San Jose</option>
+                        </select>
+                    </div>
+                    <div class="page-header__user-nav">
+                        <a href="#" class="user-nav__link user-nav__link--hidden">
+                            <i></i> Help
+                        </a>
+                        <a href="#" class="user-nav__link user-nav__link--hidden">
+                            <i></i> Favorites
+                        </a>
+                        <a href="#" class="user-nav__link user-nav__link--hidden">
+                            <i></i> Cart
+                        </a>
+                        <div class="user-nav__authentication">
+                            <a href="#" class="user-nav__link user-nav__link--rigth-border">
+                                <i></i> Log in
+                            </a>
+                            <a href="#" class="user-nav__link">
+                                Register
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="page-header__mobile-menu mobile-menu">
+                    <a href="#" class="mobile-menu__link"></a>
+                    <a href="#" class="mobile-menu__link"></a>
+                    <a href="#" class="mobile-menu__link"></a>
+                </div>
+            </div>
+            <nav class="main-nav">
+                <ul class="main-nav__list">
+                    <li class="main-nav__item">
+                        <a href="#" class="main-nav__link">
+                            Tours
+                        </a>
+                    </li>
+                    <li class="main-nav__item">
+                        <a href="#" class="main-nav__link">
+                            Attractions
+                        </a>
+                    </li>
+                    <li class="main-nav__item">
+                        <a href="#" class="main-nav__link">
+                            Museums
+                        </a>
+                    </li>
+                    <li class="main-nav__item">
+                        <a href="#" class="main-nav__link">
+                            Discount passes
+                        </a>
+                    </li>
+                    <li class="main-nav__item">
+                        <a href="#" class="main-nav__link">
+                            Neighborhoods
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="container">
+        <nav class="breadcrumbs">
+            <a href="#" class="breadcrumbs__link">
+                Category
+            </a>
+            <span class="breadcrumbs__separator"> > </span>
+            <a href="#" class="breadcrumbs__link">
+                Museums
+            </a>
+        </nav>
+        <h1 class="page-title">
+            New York City Museums
+        </h1>
+    </div>
+    <section class="slider">
+        <ul class="slider__list">
+            <li class="slider__item">
+                <img src="" alt="" class="slider__image">
+            </li>
+            <li class="slider__item">
+                <img src="" alt="" class="slider__image">
+            </li>
+            <li class="slider__item">
+                <img src="" alt="" class="slider__image">
+            </li>
+        </ul>
+        <button class="slider__btn slider__btn--prev"></button>
+        <button class="slider__btn slider__btn--next"></button>
+    </section>
+    <aside class="main-filters">
+        <div class="container">
+            <span class="main-filters__name">
+                Museums
+            </span>
+            <form action="#" class="main-filters__form" id="filter-form">
+                <select name="subcategories" id="subcategories-select" form="filter-form" class="main-filters__select">
+                    <option value="" hidden>Subcategories</option>
+                    <option value="Art-museums">Art Museums</option>
+                    <option value="History-museums">History Museums</option>
+                    <option value="Outdoor-museums">Outdoor Museums</option>
+                </select>
+                <select name="neighborhoods" id="neighborhoods-select" form="filter-form" class="main-filters__select">
+                    <option value="" hidden>Neighborhoods</option>
+                    <option value="Flatiron">Flatiron</option>
+                    <option value="Chelsea">Chelsea</option>
+                    <option value="Financial-district">Financial District</option>
+                    <option value="Upper-ES">Upper East Side</option>
+                    <option value="Upper-WS">Upper West Side</option>
+                </select>
+                <select name="duration" id="duration-select" form="filter-form" class="main-filters__select">
+                    <option value="" hidden>Duration</option>
+                    <option value="<1">Up to 1 Hour</option>
+                    <option value="1-6">1-6 Hours</option>
+                    <option value="4-1D">4 Hours to 1 Day</option>
+                    <option value=">1D">More That 1 Day</option>
+                </select>
+            </form>
+            <div class="main-filters__mobile-btns mobile-btns">
+                <a href="#" class="mobile-btns__link">Map</a>
+                <a href="#" class="mobile-btns__link">List</a>
+                <a href="#" class="mobile-btns__link" id="show-btn">Filter <i></i></a>
+            </div>
+        </div>
+    </aside>
+    <main class="page-main">
+        <div class="container">
+            <section class="main-content">
+                <h2 class="visually-hidden">
+                    Museums suitable for you
+                </h2>
+                <article class="museums">
+                    <header class="museums__sorting">
+                        <span class="museums__counter">
+                            <span id="museums-counter">38</span> Results
+                        </span>
+                        <select name="museums__sort-select" id="museums-sort">
+                            <option value="" hidden>Sort</option>
+                        </select>
+                    </header>
+                    <ul class="museums__list">
+                        <li class="museums__item">
+                            <div>
+                                <img src="" alt="" class="museums__image">
+                                <a href="#"><i></i></a>
+                            </div>
+                            <h3 class="museums__name"></h3>
+                            <a href="#" class="museums__link">from $26 per person</a>
+                        </li>
+                    </ul>
+                </article>
+                <address class="map"></address>
+            </section>
+        </div>
+    </main>
+    <div class="overlay"></div>
+    <form action="#" class="mobile-filter">
+        
+    </form>
+</body>
+
+</html>
