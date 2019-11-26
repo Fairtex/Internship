@@ -1,0 +1,81 @@
+.main-filters
+  padding-top: 12px
+  @media (min-width: $tablet-width)
+    display: flex
+    align-items: center
+    justify-content: space-between
+    padding-top: 16px
+    padding-bottom: 16px
+  @media (min-width: $desktop-width)
+    justify-content: flex-start
+
+.main-filters__title
+  padding: 0
+  margin: 0
+  margin-bottom: 15px
+
+  font-family: $font-title
+  font-size: 1.385rem
+  line-height: 1.33
+  color: $primary-color
+  @media (min-width: $tablet-width)
+    font-size: 1.5rem
+    line-height: 1.9
+    margin-bottom: 0
+  @media (min-width: $desktop-width)
+    margin-right: 38px
+
+.main-filters__form
+  display: none
+  @media (min-width: $tablet-width)
+    display: flex
+
+.main-filters__select
+  padding: 18px 25px 19px 5px
+  margin-right: 12px 
+  border: 1px solid #C2C2C2
+  border-radius: 3px
+  background-color: #ffffff
+  background-image: url("../assets/img/select-arrow.png")
+  background-position: 95% 50%
+  
+  font-size: 0.875rem
+  font-weight: 400
+  line-height: 1.285
+  color: #666666
+  &:last-of-type
+    margin-right: 0
+  @media (min-width: $desktop-width)
+    margin-right: 16px
+    &:first-of-type
+      margin-right: 119px
+
+.mobile-btns
+  display: flex
+  align-items: center
+  justify-content: space-between
+  margin-bottom: 24px
+  @media (min-width: $tablet-width)
+    display: none
+
+.hidden
+  @media (max-width: 767px)
+    display: none
+
+.mobile-btns__link
+  border: 1px solid #C2C2C2
+  border-radius: 3px
+  min-width: 45px
+  padding: 7px 7px 9px
+  text-align: center
+
+  font-size: 0.9rem
+  font-weight: 600
+  line-height: 1.25
+  color: #666666
+  text-decoration: none
+
+.mobile-btns__icon
+  display: inline-block
+  vertical-align: middle
+  margin-left: 5px

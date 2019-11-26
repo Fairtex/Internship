@@ -1,0 +1,94 @@
+.museums
+  @media (min-width: $tablet-width)
+    flex-basis: 50%
+    padding-right: 15px
+  @media (min-width: $desktop-width)
+    flex-basis: 673px
+    padding-right: 20px
+
+.main-content__layout
+  @media (min-width: $tablet-width)
+    display: flex
+  
+.museums__sorting
+  display: none
+  @media (min-width: $tablet-width)
+    display: flex
+    align-items: center
+    justify-content: space-between
+    min-height: 46px
+
+.museums__sort-select
+  padding-right: 16px
+  font-size: 0.875rem
+  font-weight: 400
+  line-height: 1.3
+  color: $primary-color
+  background-color: #ffffff
+  background-image: url("../assets/img/select-arrow-black.png")
+  background-position: 95% 50%
+  @media (min-width: $desktop-width)
+    order: 1
+
+.museums__counter
+  font-size: 0.875rem
+  line-height: 1.3
+  @media (min-width: $desktop-width)
+    order: 0
+
+.museums__list
+  margin: 0
+  padding: 0
+  list-style: none
+
+  display: flex
+  flex-wrap: wrap
+  justify-content: space-between
+
+.museums__item
+  display: flex
+  flex-direction: column
+  flex-basis: 130px
+  margin-bottom: 10px
+  @media (min-width: $tablet-width)
+    flex-basis: 163px
+    margin-bottom: 40px
+  @media (min-width: $desktop-width)
+    flex-basis: 211px
+    
+.museums__image-box
+  margin-bottom: 4px
+  @media (min-width: $tablet-width)
+    margin-bottom: 12px
+  @media (min-width: $desktop-width)
+    margin-bottom: 13px
+
+.museums__name
+  flex-grow: 1
+  margin: 0
+  margin-bottom: 2px
+  padding: 0
+
+  font-family: $font-title
+  font-size: 1.1rem
+  line-height: 1.15
+  color: $primary-color
+  @media (min-width: $tablet-width)
+    font-size: 1rem
+    line-height: 1.18
+    margin-bottom: 7px
+  @media (min-width: $desktop-width)
+    font-size: 1.18rem
+    line-height: 1.15
+
+.museums__link
+  font-family: $font-title
+  font-size: 1rem
+  line-height: 1.75
+  color: #0084BA
+  text-decoration: none
+  @media (min-width: $tablet-width)
+    line-height: 1.3
+  @media (min-width: $desktop-width)
+    font-size: 1.1rem
+    line-height: 1.15

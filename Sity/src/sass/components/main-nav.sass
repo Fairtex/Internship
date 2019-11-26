@@ -1,0 +1,51 @@
+.main-nav
+  display: none
+  background-color: #0098D7
+  @media (min-width: $desktop-width)
+    display: block
+
+.main-nav--opened
+  display: block
+
+.main-nav__list
+  margin: 0
+  padding: 0
+  list-style: none
+  @media (min-width: $tablet-width)
+    display: flex
+    align-items: center
+    justify-content: space-between
+    margin: 0 auto
+    min-height: 40px
+    min-width: 655px
+    max-width: 90%
+  @media (min-width: $desktop-width)
+    width: 845px
+    justify-content: space-between
+
+.main-nav__item
+  margin: 0 -20px
+  border-bottom: 2px solid $nav-font-color
+  &:last-of-type
+    border-bottom: none
+  @media (min-width: $tablet-width)
+    margin: 0
+    border-bottom: none
+
+.main-nav__link
+  display: block
+  padding: 1rem
+  text-align: center
+
+  font-size: 1.2rem
+  font-weight: 600
+  color: $nav-font-color
+  text-decoration: none
+  text-transform: uppercase
+  @media (min-width: $tablet-width)
+    padding:
+      left: 0
+      right: 0
+      top: 10px
+      bottom: 10px
+    font-size: 1rem

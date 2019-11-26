@@ -1,0 +1,166 @@
+.page-header
+  background-color: #0084BA
+
+.top-header
+  display: flex
+  justify-content: space-between
+  align-items: center
+  min-height: 48px
+  @media (min-width: $tablet-width)
+    justify-content: flex-start
+    min-height: 80px
+
+.page-header__logo-box
+  @media (min-width: $tablet-width)
+    display: flex
+    align-items: center
+    margin-right: 70px
+
+.page-header__logo
+  @media (min-width: $tablet-width)
+    width: 73px
+    height: 51px      
+
+.page-header__toggle
+  display: inline-block
+  vertical-align: super
+  border: none
+  width: 20px
+  height: 20px
+  position: relative
+  cursor: pointer
+  background-color: transparent
+  margin-right: 20px
+
+  @media (min-width: $desktop-width)
+    display: none
+
+.page-header__toggle--closed
+  &::before
+    content: ""
+    position: absolute
+    top: 1px
+    left: 0
+    width: 20px
+    height: 3px
+    background-color: $nav-font-color
+    box-shadow: 0 7px 0 0 $nav-font-color, 0 14px 0 0 $nav-font-color
+    border-radius: 3px
+
+.page-header__toggle--opened
+  &::before,
+  &::after
+    content: "";
+    position: absolute;
+    top: 9px;
+    left: 4px;
+    width: 20px;
+    height: 3px;
+    background-color: $nav-font-color;
+  &::before
+    transform: rotate(45deg)
+  &::after
+    transform: rotate(-45deg)
+
+.page-header__menu
+  display: none
+  @media (min-width: $tablet-width)
+    flex-grow: 1
+    display: flex
+    align-items: center
+    justify-content: space-between
+
+.header-filters
+  display: flex
+  align-items: center
+
+.header-filters__search-box
+  position: relative
+  width: 297px
+  height: 55px
+  padding: 17px 20px 18px 47px
+  border: 1px solid #C2C2C2
+  border-radius: 3px
+  background-color: #ffffff
+  @media (min-width: $desktop-width)
+    margin-right: 15px
+
+.header-filters__select
+  display: none
+  @media (min-width: $desktop-width)
+    display: block
+    min-width: 90px
+    border: none
+    background-image: url("../assets/img/select-arrow-header.png")
+    color: $nav-font-color
+
+.header-filters__option
+  color: #000000
+
+.header-filters__search-icon
+  display: inline-block
+  margin-right: 10px
+  color: #0098D7
+
+.page-header__user-nav
+  display: flex
+  align-items: center
+  margin-left: auto
+
+.user-nav__link
+  position: relative
+  display: inline-block
+  padding-left: 23px
+  margin-right: 35px
+
+  font-size: 1rem
+  font-weight: 600
+  line-height: 1.25
+  color: $nav-font-color
+  text-decoration: none
+  &:last-of-type
+    margin-right: 0
+
+.user-nav__authentication
+  font-size: 1rem
+  font-weight: 600
+  line-height: 1.25
+  color: $nav-font-color
+  margin-left: 50px
+  .user-nav__link:last-of-type
+    padding-left: 0
+  .user-nav__link:first-of-type
+    margin-right: 0
+ 
+.user-nav__link--hidden
+  @media ( max-width: $desktop-width)
+    display: none
+
+.user-nav__icon
+  display: inline-block
+  margin-right: 5px    
+
+.mobile-menu
+  display: flex
+  align-items: flex-start
+  @media (min-width: $tablet-width)
+    display: none
+
+
+.mobile-menu__link
+  margin-right: 25px
+  color: #ffffff
+  &:last-of-type
+    margin-right: 0
+
+.mobile-menu__question
+  font-size: 23px
+
+
+.mobile-menu__search
+  font-size: 20px
+  line-height: 24px
+
+.mobile-menu__user
+  font-size: 20px
+  line-height: 24px

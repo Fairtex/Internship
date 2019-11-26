@@ -1,0 +1,43 @@
+.slider
+  position: relative
+  width: 100%
+
+.slider__list
+  margin: 0
+  padding: 0
+  list-style: none
+
+.slider__image
+  height: 243px
+  width: 100%
+  object-fit: cover
+  @media (min-width: $tablet-width)
+    height: 339px
+  @media (min-width: $tablet-width)
+    height: 416px
+
+.slider__btn
+  display: block
+  position: absolute
+  top: calc(50% - 25px)
+  width: 50px
+  height: 50px
+  padding: 12px 14px
+  background-color: #E26D5A
+  color: #ffffff
+  text-align: center
+
+.slider__btn--prev
+  left: 0
+  @media (min-width: $tablet-width)
+    left: 44px
+
+.slider__btn--next
+  right: 0
+  @media (min-width: $tablet-width)
+    right: 44px
+
+.slider__chevron
+  color: #ffffff
+  font-size: 24px
+  line-height: 26px
