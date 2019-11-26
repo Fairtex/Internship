@@ -5,42 +5,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://use.fontawesome.com/53fd26efc2.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Actor&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.min.css">
+    <script>
+        document.createElement("picture");
+    </script>
+    <script src="js/picturefill.min.js" async></script>
     <title>Sity</title>
 </head>
 
 <body>
     <header class="page-header">
-        <div class="container">
+        <div class="container page-header__container">
             <div class="top-header">
                 <div class="page-header__logo-box">
-                    <button class="page-header__toggle"></button>
+                    <button class="page-header__toggle page-header__toggle--closed"></button>
                     <img src="assets/img/logo.svg" alt="Sity" width="53" height="37" class="page-header__logo">
                 </div>
                 <div class="page-header__menu">
                     <div class="page-header__filters header-filters">
                         <div class="header-filters__search-box">
-                            <input type="search" class="header-filters__search" placeholder="Search New York">
+                            <i class="fa fa-search header-filters__search-icon"></i>
+                            <input type="search" class="header-filters__search controls-search"
+                                placeholder="Search New York">
                         </div>
-                        <select name="city" id="select-city" class="header-filters__select">
-                            <option value="NY">New York</option>
-                            <option value="LA">Los Angeles</option>
-                            <option value="SJ">San Jose</option>
+                        <select name="select-city" id="select-city" class="header-filters__select controls-select">
+                            <option value="NY" class="header-filters__option">New York</option>
+                            <option value="LA" class="header-filters__option">Boston</option>
+                            <option value="SJ" class="header-filters__option">San Jose</option>
                         </select>
                     </div>
-                    <div class="page-header__user-nav">
+                    <div class="page-header__user-nav user-nav">
                         <a href="#" class="user-nav__link user-nav__link--hidden">
-                            <i></i> Help
+                            <i class="fa fa-question-circle-o user-nav__icon"></i> Help
                         </a>
                         <a href="#" class="user-nav__link user-nav__link--hidden">
-                            <i></i> Favorites
+                            <i class="fa fa-star-o user-nav__icon"></i> Favorites
                         </a>
                         <a href="#" class="user-nav__link user-nav__link--hidden">
-                            <i></i> Cart
+                            <i class="fa fa-shopping-cart user-nav__icon"></i> Cart
                         </a>
                         <div class="user-nav__authentication">
-                            <a href="#" class="user-nav__link user-nav__link--rigth-border">
-                                <i></i> Log in
+                            <a href="#" class="user-nav__link user-nav__link--right-border">
+                                <i class="fa fa-user-circle-o user-nav__icon"></i> Log in
                             </a>
+                            <span class="user-nav__separator">
+                                |
+                            </span>
                             <a href="#" class="user-nav__link">
                                 Register
                             </a>
@@ -48,12 +62,20 @@
                     </div>
                 </div>
                 <div class="page-header__mobile-menu mobile-menu">
-                    <a href="#" class="mobile-menu__link"></a>
-                    <a href="#" class="mobile-menu__link"></a>
-                    <a href="#" class="mobile-menu__link"></a>
+                    <a href="#" class="mobile-menu__link">
+                        <i class="fa fa-question-circle-o mobile-menu__question"></i>
+                    </a>
+                    <a href="#" class="mobile-menu__link">
+                        <i class="fa fa-search mobile-menu__search"></i>
+                    </a>
+                    <a href="#" class="mobile-menu__link">
+                        <i class="fa fa-user-circle-o mobile-menu__user"></i>
+                    </a>
                 </div>
             </div>
-            <nav class="main-nav">
+        </div>
+        <nav class="main-nav">
+            <div class="container">
                 <ul class="main-nav__list">
                     <li class="main-nav__item">
                         <a href="#" class="main-nav__link">
@@ -81,107 +103,318 @@
                         </a>
                     </li>
                 </ul>
-            </nav>
-        </div>
-    </header>
-    <div class="container">
-        <nav class="breadcrumbs">
-            <a href="#" class="breadcrumbs__link">
-                Category
-            </a>
-            <span class="breadcrumbs__separator"> > </span>
-            <a href="#" class="breadcrumbs__link">
-                Museums
-            </a>
+            </div>
         </nav>
-        <h1 class="page-title">
-            New York City Museums
-        </h1>
-    </div>
+    </header>
+    <nav class="breadcrumbs container">
+        <a href="#" class="breadcrumbs__link">
+            Category
+        </a>
+        <span class="breadcrumbs__separator"> > </span>
+        <a href="#" class="breadcrumbs__link">
+            Museums
+        </a>
+    </nav>
+    <h1 class="page-title container">
+        New York City Museums
+    </h1>
     <section class="slider">
+        <h2 class="visually-hidden">
+          Museums photo
+        </h2>
         <ul class="slider__list">
             <li class="slider__item">
-                <img src="" alt="" class="slider__image">
-            </li>
-            <li class="slider__item">
-                <img src="" alt="" class="slider__image">
-            </li>
-            <li class="slider__item">
-                <img src="" alt="" class="slider__image">
+                <picture>
+                    <source media="(min-width: 1200px)" srcset="assets/img/guggenheim-desk.jpg">
+                    <source media="(min-width: 768px)" srcset="assets/img/guggenheim-tablet.jpg">
+                    <img src="assets/img/guggenheim-mobile.jpg" alt="guggenheim-museum" class="slider__image">
+                </picture>
             </li>
         </ul>
-        <button class="slider__btn slider__btn--prev"></button>
-        <button class="slider__btn slider__btn--next"></button>
+        <a href="#" class="slider__btn slider__btn--prev">
+            <i class="fa fa-chevron-left slider__chevron"></i>
+        </a>
+        <a href="#" class="slider__btn slider__btn--next">
+            <i class="fa fa-chevron-right slider__chevron"></i>
+        </a>
     </section>
-    <aside class="main-filters">
-        <div class="container">
-            <span class="main-filters__name">
-                Museums
-            </span>
-            <form action="#" class="main-filters__form" id="filter-form">
-                <select name="subcategories" id="subcategories-select" form="filter-form" class="main-filters__select">
-                    <option value="" hidden>Subcategories</option>
-                    <option value="Art-museums">Art Museums</option>
-                    <option value="History-museums">History Museums</option>
-                    <option value="Outdoor-museums">Outdoor Museums</option>
-                </select>
-                <select name="neighborhoods" id="neighborhoods-select" form="filter-form" class="main-filters__select">
-                    <option value="" hidden>Neighborhoods</option>
-                    <option value="Flatiron">Flatiron</option>
-                    <option value="Chelsea">Chelsea</option>
-                    <option value="Financial-district">Financial District</option>
-                    <option value="Upper-ES">Upper East Side</option>
-                    <option value="Upper-WS">Upper West Side</option>
-                </select>
-                <select name="duration" id="duration-select" form="filter-form" class="main-filters__select">
-                    <option value="" hidden>Duration</option>
-                    <option value="<1">Up to 1 Hour</option>
-                    <option value="1-6">1-6 Hours</option>
-                    <option value="4-1D">4 Hours to 1 Day</option>
-                    <option value=">1D">More That 1 Day</option>
-                </select>
-            </form>
-            <div class="main-filters__mobile-btns mobile-btns">
-                <a href="#" class="mobile-btns__link">Map</a>
-                <a href="#" class="mobile-btns__link">List</a>
-                <a href="#" class="mobile-btns__link" id="show-btn">Filter <i></i></a>
-            </div>
-        </div>
-    </aside>
     <main class="page-main">
         <div class="container">
             <section class="main-content">
-                <h2 class="visually-hidden">
-                    Museums suitable for you
-                </h2>
-                <article class="museums">
-                    <header class="museums__sorting">
-                        <span class="museums__counter">
-                            <span id="museums-counter">38</span> Results
-                        </span>
-                        <select name="museums__sort-select" id="museums-sort">
-                            <option value="" hidden>Sort</option>
+                <header class="main-filters">
+                    <h2 class="main-filters__title">
+                        Museums
+                    </h2>
+                    <form action="#" class="main-filters__form" id="filter-form">
+                        <select name="subcategories" id="subcategories-select" form="filter-form"
+                            class="main-filters__select controls-select">
+                            <option value="" hidden>Subcategories</option>
+                            <option value="Art-museums">Art Museums</option>
+                            <option value="History-museums">History Museums</option>
+                            <option value="Outdoor-museums">Outdoor Museums</option>
                         </select>
-                    </header>
-                    <ul class="museums__list">
-                        <li class="museums__item">
-                            <div>
-                                <img src="" alt="" class="museums__image">
-                                <a href="#"><i></i></a>
-                            </div>
-                            <h3 class="museums__name"></h3>
-                            <a href="#" class="museums__link">from $26 per person</a>
-                        </li>
-                    </ul>
-                </article>
-                <address class="map"></address>
+                        <select name="neighborhoods" id="neighborhoods-select" form="filter-form"
+                            class="main-filters__select controls-select">
+                            <option value="" hidden>Neighborhoods</option>
+                            <option value="Flatiron">Flatiron</option>
+                            <option value="Chelsea">Chelsea</option>
+                            <option value="Financial-district">Financial District</option>
+                            <option value="Upper-ES">Upper East Side</option>
+                            <option value="Upper-WS">Upper West Side</option>
+                        </select>
+                        <select name="duration" id="duration-select" form="filter-form"
+                            class="main-filters__select controls-select">
+                            <option value="" hidden>Duration</option>
+                            <option value="<1">Up to 1 Hour</option>
+                            <option value="1-6">1-6 Hours</option>
+                            <option value="4-1D">4 Hours to 1 Day</option>
+                            <option value=">1D">More That 1 Day</option>
+                        </select>
+                    </form>
+                    <div class="main-filters__mobile-btns mobile-btns">
+                        <a href="#" class="mobile-btns__link toggle-btn" id="toggle-map">Map</a>
+                        <a href="#" class="mobile-btns__link hidden toggle-btn" id="toggle-list">List</a>
+                        <a href="#" class="mobile-btns__link" id="show-btn">Filter <i class="fa fa-chevron-right mobile-btns__icon"></i></a>
+                    </div>
+                </header>
+                <div class="main-content__layout">
+                    <article class="museums">
+                        <header class="museums__sorting">
+                            <select name="museums-sort" class="museums__sort-select controls-select" id="museums-sort">
+                                <option value="" hidden>Sort</option>
+                            </select>
+                            <span class="museums__counter">
+                                <span id="museums-counter">38</span> Results
+                            </span>
+                        </header>
+                        <ul class="museums__list">
+                            <li class="museums__item">
+                                <div class="museums__image-box">
+                                    <picture>
+                                        <source media="(min-width: 1200px)" srcset="assets/img/museum1-desk.jpg">
+                                        <source media="(min-width: 768px)" srcset="assets/img/museum1-tablet.jpg">
+                                        <img src="assets/img/museum1-mobile.jpg" alt="Museum" class="museums__image">
+                                    </picture>
+                                    <a href="#" class="museums__added-link"><i></i></a>
+                                </div>
+                                <h3 class="museums__name">
+                                    NYC Museum of Art Tour with Skip-the-Line Access
+                                </h3>
+                                <a href="#" class="museums__link">from $26 per person</a>
+                            </li>
+                            <li class="museums__item">
+                                <div class="museums__image-box">
+                                    <picture>
+                                        <source media="(min-width: 1200px)" srcset="assets/img/museum2-desk.jpg">
+                                        <source media="(min-width: 768px)" srcset="assets/img/museum2-tablet.jpg">
+                                        <img src="assets/img/museum2-mobile.jpg" alt="Museum" class="museums__image">
+                                    </picture>
+                                    <a href="#" class="museums__added-link"><i></i></a>
+                                </div>
+                                <h3 class="museums__name">
+                                    The Bronx Museum of the Arts Tour with Skip-the-Line Access
+                                </h3>
+                                <a href="#" class="museums__link">from $26 per person</a>
+                            </li>
+                            <li class="museums__item">
+                                <div class="museums__image-box">
+                                    <picture>
+                                        <source media="(min-width: 1200px)" srcset="assets/img/museum3-desk.jpg">
+                                        <source media="(min-width: 768px)" srcset="assets/img/museum3-tablet.jpg">
+                                        <img src="assets/img/museum3-mobile.jpg" alt="Museum" class="museums__image">
+                                    </picture>
+                                    <a href="#" class="museums__added-link"><i></i></a>
+                                </div>
+                                <h3 class="museums__name">
+                                    Brooklyn Museum of the Arts Tour with Skip-the-Line Access
+                                </h3>
+                                <a href="#" class="museums__link">from $26 per person</a>
+                            </li>
+                            <li class="museums__item">
+                                <div class="museums__image-box">
+                                    <picture>
+                                        <source media="(min-width: 1200px)" srcset="assets/img/museum4-desk.jpg">
+                                        <source media="(min-width: 768px)" srcset="assets/img/museum4-tablet.jpg">
+                                        <img src="assets/img/museum4-mobile.jpg" alt="Museum" class="museums__image">
+                                    </picture>
+                                    <a href="#" class="museums__added-link"><i></i></a>
+                                </div>
+                                <h3 class="museums__name">
+                                    American Folk Art Museum Tour with Skip-the-Line Access
+                                </h3>
+                                <a href="#" class="museums__link">from $26 per person</a>
+                            </li>
+                            <li class="museums__item">
+                                <div class="museums__image-box">
+                                    <picture>
+                                        <source media="(min-width: 1200px)" srcset="assets/img/museum5-desk.jpg">
+                                        <source media="(min-width: 768px)" srcset="assets/img/museum5-tablet.jpg">
+                                        <img src="assets/img/museum5-mobile.jpg" alt="Museum" class="museums__image">
+                                    </picture>
+                                    <a href="#" class="museums__added-link"><i></i></a>
+                                </div>
+                                <h3 class="museums__name">
+                                    The Bronx Museum of the Arts Tour with Skip-the-Line Access
+                                </h3>
+                                <a href="#" class="museums__link">from $26 per person</a>
+                            </li>
+                            <li class="museums__item">
+                                <div class="museums__image-box">
+                                    <picture>
+                                        <source media="(min-width: 1200px)" srcset="assets/img/museum6-desk.jpg">
+                                        <source media="(min-width: 768px)" srcset="assets/img/museum6-tablet.jpg">
+                                        <img src="assets/img/museum6-mobile.jpg" alt="Museum" class="museums__image">
+                                    </picture>
+                                    <a href="#" class="museums__added-link"><i></i></a>
+                                </div>
+                                <h3 class="museums__name">
+                                    The Bronx Museum of the Arts Tour with Skip-the-Line Access
+                                </h3>
+                                <a href="#" class="museums__link">from $26 per person</a>
+                            </li>
+                            <li class="museums__item">
+                                <div class="museums__image-box">
+                                    <picture>
+                                        <source media="(min-width: 1200px)" srcset="assets/img/museum7-desk.jpg">
+                                        <source media="(min-width: 768px)" srcset="assets/img/museum2-tablet.jpg">
+                                        <img src="assets/img/museum2-mobile.jpg" alt="Museum" class="museums__image">
+                                    </picture>
+                                    <a href="#" class="museums__added-link"><i></i></a>
+                                </div>
+                                <h3 class="museums__name">
+                                    The Bronx Museum of the Arts Tour with Skip-the-Line Access
+                                </h3>
+                                <a href="#" class="museums__link">from $26 per person</a>
+                            </li>
+                            <li class="museums__item">
+                                <div class="museums__image-box">
+                                    <picture>
+                                        <source media="(min-width: 1200px)" srcset="assets/img/museum8-desk.jpg">
+                                        <source media="(min-width: 768px)" srcset="assets/img/museum2-tablet.jpg">
+                                        <img src="assets/img/museum2-mobile.jpg" alt="Museum" class="museums__image">
+                                    </picture>
+                                    <a href="#" class="museums__added-link"><i></i></a>
+                                </div>
+                                <h3 class="museums__name">
+                                    The Bronx Museum of the Arts Tour with Skip-the-Line Access
+                                </h3>
+                                <a href="#" class="museums__link">from $26 per person</a>
+                            </li>
+                            <li class="museums__item">
+                                <div class="museums__image-box">
+                                    <picture>
+                                        <source media="(min-width: 1200px)" srcset="assets/img/museum9-desk.jpg">
+                                        <source media="(min-width: 768px)" srcset="assets/img/museum2-tablet.jpg">
+                                        <img src="assets/img/museum2-mobile.jpg" alt="Museum" class="museums__image">
+                                    </picture>
+                                    <a href="#" class="museums__added-link"><i></i></a>
+                                </div>
+                                <h3 class="museums__name">
+                                    The Bronx Museum of the Arts Tour with Skip-the-Line Access
+                                </h3>
+                                <a href="#" class="museums__link">from $26 per person</a>
+                            </li>
+                            <li class="museums__item">
+                                <div class="museums__image-box">
+                                    <picture>
+                                        <source media="(min-width: 1200px)" srcset="assets/img/museum10-desk.jpg">
+                                        <source media="(min-width: 768px)" srcset="assets/img/museum2-tablet.jpg">
+                                        <img src="assets/img/museum2-mobile.jpg" alt="Museum" class="museums__image">
+                                    </picture>
+                                    <a href="#" class="museums__added-link"><i></i></a>
+                                </div>
+                                <h3 class="museums__name">
+                                    The Bronx Museum of the Arts Tour with Skip-the-Line Access
+                                </h3>
+                                <a href="#" class="museums__link">from $26 per person</a>
+                            </li>
+                            <li class="museums__item">
+                                <div class="museums__image-box">
+                                    <picture>
+                                        <source media="(min-width: 1200px)" srcset="assets/img/museum11-desk.jpg">
+                                        <source media="(min-width: 768px)" srcset="assets/img/museum2-tablet.jpg">
+                                        <img src="assets/img/museum2-mobile.jpg" alt="Museum" class="museums__image">
+                                    </picture>
+                                    <a href="#" class="museums__added-link"><i></i></a>
+                                </div>
+                                <h3 class="museums__name">
+                                    The Bronx Museum of the Arts Tour with Skip-the-Line Access
+                                </h3>
+                                <a href="#" class="museums__link">from $26 per person</a>
+                            </li>
+                            <li class="museums__item">
+                                <div class="museums__image-box">
+                                    <picture>
+                                        <source media="(min-width: 1200px)" srcset="assets/img/museum12-desk.jpg">
+                                        <source media="(min-width: 768px)" srcset="assets/img/museum2-tablet.jpg">
+                                        <img src="assets/img/museum2-mobile.jpg" alt="Museum" class="museums__image">
+                                    </picture>
+                                    <a href="#" class="museums__added-link"><i></i></a>
+                                </div>
+                                <h3 class="museums__name">
+                                    The Bronx Museum of the Arts Tour with Skip-the-Line Access
+                                </h3>
+                                <a href="#" class="museums__link">from $26 per person</a>
+                            </li>
+                            <li class="museums__item">
+                                <div class="museums__image-box">
+                                    <picture>
+                                        <source media="(min-width: 1200px)" srcset="assets/img/museum13-desk.jpg">
+                                        <source media="(min-width: 768px)" srcset="assets/img/museum2-tablet.jpg">
+                                        <img src="assets/img/museum2-mobile.jpg" alt="Museum" class="museums__image">
+                                    </picture>
+                                    <a href="#" class="museums__added-link"><i></i></a>
+                                </div>
+                                <h3 class="museums__name">
+                                    The Bronx Museum of the Arts Tour with Skip-the-Line Access
+                                </h3>
+                                <a href="#" class="museums__link">from $26 per person</a>
+                            </li>
+                            <li class="museums__item">
+                                <div class="museums__image-box">
+                                    <picture>
+                                        <source media="(min-width: 1200px)" srcset="assets/img/museum14-desk.jpg">
+                                        <source media="(min-width: 768px)" srcset="assets/img/museum2-tablet.jpg">
+                                        <img src="assets/img/museum2-mobile.jpg" alt="Museum" class="museums__image">
+                                    </picture>
+                                    <a href="#" class="museums__added-link"><i></i></a>
+                                </div>
+                                <h3 class="museums__name">
+                                    The Bronx Museum of the Arts Tour with Skip-the-Line Access
+                                </h3>
+                                <a href="#" class="museums__link">from $26 per person</a>
+                            </li>
+                            <li class="museums__item">
+                                <div class="museums__image-box">
+                                    <picture>
+                                        <source media="(min-width: 1200px)" srcset="assets/img/museum15-desk.jpg">
+                                        <source media="(min-width: 768px)" srcset="assets/img/museum2-tablet.jpg">
+                                        <img src="assets/img/museum2-mobile.jpg" alt="Museum" class="museums__image">
+                                    </picture>
+                                    <a href="#" class="museums__added-link"><i></i></a>
+                                </div>
+                                <h3 class="museums__name">
+                                    The Bronx Museum of the Arts Tour with Skip-the-Line Access
+                                </h3>
+                                <a href="#" class="museums__link">from $26 per person</a>
+                            </li>
+                        </ul>
+                    </article>
+                    <address class="map hidden">
+                        <div class="map__wrapper">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3026.1019350923366!2d-73.96370570439323!3d40.67172290312324!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25b0a449c39c9%3A0xc62355aa46c985fa!2z0JHRgNGD0LrQu9C40L3RgdC60LjQuSDQvNGD0LfQtdC5!5e0!3m2!1sru!2sru!4v1574784501921!5m2!1sru!2sru"
+                                style="border:0;" allowfullscreen="" class="map__frame"></iframe>
+                        </div>
+                    </address>
+                </div>
             </section>
         </div>
     </main>
     <div class="overlay"></div>
     <form action="#" class="mobile-filter">
-        
     </form>
+    <script src="js/script.js"></script>
 </body>
 
 </html>
