@@ -13,19 +13,23 @@
   object-fit: cover
   @media (min-width: $tablet-width)
     height: 339px
-  @media (min-width: $tablet-width)
+  @media (min-width: $desktop-width)
     height: 416px
 
 .slider__btn
   display: block
   position: absolute
-  top: calc(50% - 25px)
+  top: calc(50% - 27px)
   width: 50px
   height: 50px
   padding: 12px 14px
   background-color: #E26D5A
   color: #ffffff
   text-align: center
+  @media (min-width: $tablet-width)
+    top: calc(50% - 20px)
+  @media (min-width: $desktop-width)
+    top: calc(50% - 3px)
 
 .slider__btn--prev
   left: 0

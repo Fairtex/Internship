@@ -3,7 +3,6 @@
     flex-basis: 50%
     padding-right: 15px
   @media (min-width: $desktop-width)
-    flex-basis: 673px
     padding-right: 20px
 
 .main-content__layout
@@ -17,6 +16,9 @@
     align-items: center
     justify-content: space-between
     min-height: 46px
+  @media (min-width: $desktop-width)
+    min-height: 50px
+    margin-bottom: 8px
 
 .museums__sort-select
   padding-right: 16px
@@ -44,17 +46,28 @@
   display: flex
   flex-wrap: wrap
   justify-content: space-between
+  @media (min-width: $tablet-width)
+    justify-content: flex-start
+    margin-left: -7.5px;
+    margin-right: -7.5px;
+  @media (min-width: $desktop-width)
+    margin-left: -10px;
+    margin-right: -10px;
 
 .museums__item
   display: flex
   flex-direction: column
-  flex-basis: 130px
-  margin-bottom: 10px
+  flex-basis: calc( 100%/2 - 10px )
+  margin-bottom: 14px
   @media (min-width: $tablet-width)
-    flex-basis: 163px
+    flex-basis: calc(100%/2);
+    padding-right: 7.5px;
+    padding-left: 7.5px;
     margin-bottom: 40px
   @media (min-width: $desktop-width)
-    flex-basis: 211px
+    flex-basis: calc(100%/3);
+    padding-right: 10px;
+    padding-left: 10px;
     
 .museums__image-box
   margin-bottom: 4px
@@ -62,6 +75,9 @@
     margin-bottom: 12px
   @media (min-width: $desktop-width)
     margin-bottom: 13px
+
+.museums__image
+  width: 100%
 
 .museums__name
   flex-grow: 1
