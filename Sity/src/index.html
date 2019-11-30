@@ -106,21 +106,23 @@
             </div>
         </nav>
     </header>
-    <nav class="breadcrumbs container">
-        <a href="#" class="breadcrumbs__link">
-            Category
-        </a>
-        <span class="breadcrumbs__separator"> > </span>
-        <a href="#" class="breadcrumbs__link">
-            Museums
-        </a>
-    </nav>
-    <h1 class="page-title container">
-        New York City Museums
-    </h1>
+    <div class="container">
+        <nav class="breadcrumbs">
+            <a href="#" class="breadcrumbs__link">
+                Category
+            </a>
+            <span class="breadcrumbs__separator"> > </span>
+            <a href="#" class="breadcrumbs__link">
+                Museums
+            </a>
+        </nav>
+        <h1 class="page-title">
+            New York City Museums
+        </h1>
+    </div>
     <section class="slider">
         <h2 class="visually-hidden">
-          Museums photo
+            Museums photo
         </h2>
         <ul class="slider__list">
             <li class="slider__item">
@@ -173,8 +175,9 @@
                     </form>
                     <div class="main-filters__mobile-btns mobile-btns">
                         <a href="#" class="mobile-btns__link toggle-btn" id="toggle-map">Map</a>
-                        <a href="#" class="mobile-btns__link hidden toggle-btn" id="toggle-list">List</a>
-                        <a href="#" class="mobile-btns__link" id="show-btn">Filter <i class="fa fa-chevron-right mobile-btns__icon"></i></a>
+                        <a href="#" class="mobile-btns__link js-hidden toggle-btn" id="toggle-list">List</a>
+                        <a href="#" class="mobile-btns__link" id="show-btn">Filter <i
+                                class="fa fa-chevron-right mobile-btns__icon"></i></a>
                     </div>
                 </header>
                 <div class="main-content__layout">
@@ -400,13 +403,13 @@
                             </li>
                         </ul>
                     </article>
-                    <address class="map hidden">
+                    <div class="map js-hidden">
                         <div class="map__wrapper">
                             <iframe
                                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3026.1019350923366!2d-73.96370570439323!3d40.67172290312324!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25b0a449c39c9%3A0xc62355aa46c985fa!2z0JHRgNGD0LrQu9C40L3RgdC60LjQuSDQvNGD0LfQtdC5!5e0!3m2!1sru!2sru!4v1574784501921!5m2!1sru!2sru"
                                 style="border:0;" allowfullscreen="" class="map__frame"></iframe>
                         </div>
-                    </address>
+                    </div>
                 </div>
             </section>
         </div>
