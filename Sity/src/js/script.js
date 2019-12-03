@@ -1,11 +1,12 @@
 "use strict";
 window.addEventListener('DOMContentLoaded', function () {
+
     //Mobile menu
 
-    let navToggle = document.querySelector('.page-header__toggle');
-    let mainNav = document.querySelector('.main-nav');
+    var navToggle = document.querySelector('.js-header-toggle');
+    var mainNav = document.querySelector('.main-nav');
 
-    navToggle.addEventListener('click', () => {
+    navToggle.addEventListener('click', function () {
         if (navToggle.classList.contains('page-header__toggle--closed')) {
             navToggle.classList.remove('page-header__toggle--closed');
             navToggle.classList.add('page-header__toggle--opened');
@@ -19,25 +20,108 @@ window.addEventListener('DOMContentLoaded', function () {
 
     //show Map or List
 
-    let showListBtn = document.getElementById('toggle-list');
-    let showMapBtn = document.getElementById('toggle-map');
-    let museumsList = document.querySelector('.museums');
-    let map = document.querySelector('.map');
+    var mainSection = document.querySelector('.js-main');
+    var showListBtn = document.getElementById('toggle-list');
+    var showMapBtn = document.getElementById('toggle-map');
+    var museumsList = mainSection.querySelector('.js-museums');
+    var map = mainSection.querySelector('.js-map');
 
     showMapBtn.addEventListener('click', function (event) {
         event.preventDefault();
-        showListBtn.classList.toggle('hidden');
-        showMapBtn.classList.toggle('hidden');
-        museumsList.classList.toggle('hidden');
-        map.classList.toggle('hidden');
+        showListBtn.classList.toggle('js-hidden');
+        showMapBtn.classList.toggle('js-hidden');
+        museumsList.classList.toggle('js-hidden');
+        map.classList.toggle('js-hidden');
 
     });
-    
+
     showListBtn.addEventListener('click', function (event) {
         event.preventDefault();
-        showListBtn.classList.toggle('hidden');
-        showMapBtn.classList.toggle('hidden');
-        museumsList.classList.toggle('hidden');
-        map.classList.toggle('hidden');
+        showListBtn.classList.toggle('js-hidden');
+        showMapBtn.classList.toggle('js-hidden');
+        museumsList.classList.toggle('js-hidden');
+        map.classList.toggle('js-hidden');
+    });
+
+    //SLider
+
+    var slideIndex = 1;
+    var slides = document.querySelectorAll('.js-slide');
+    var nextBtn = document.getElementById('js-next-btn');
+    var prevBtn = document.getElementById('js-prev-btn');
+    var autoplay = setInterval(slideSwitch, 3000, 1);
+
+    showSlide(slideIndex);
+
+    function showSlide(n) {
+        if (n > slides.length) {
+            slideIndex = 1;
+        }
+        if (n < 1) {
+            slideIndex = slides.length;
+        }
+
+        slides.forEach(function (item) {
+            item.style.display = 'none';
+        });
+        slides[slideIndex - 1].style.display = 'block';
+    }
+
+    function slideSwitch(n) {
+        showSlide(slideIndex += n);
+    }
+
+    nextBtn.addEventListener('click', function (event) {
+        event.preventDefault();
+        clearInterval(autoplay);
+        slideSwitch(1);
+    });
+    prevBtn.addEventListener('click', function (event) {
+        event.preventDefault();
+        clearInterval(autoplay);
+        slideSwitch(-1);
+    });
+
+    //Fixed filters and map
+
+    var mainFilter = mainSection.querySelector('.js-main-filters');
+    var mapWrapper = mainSection.querySelector('.js-map-wrapper');
+
+    window.addEventListener('scroll', function () {
+        var scrollOffset = window.scrollY;
+        if (scrollOffset >= mainSection.offsetTop) {
+            mainSection.classList.add('page-main-scrolled');
+            map.classList.add('js-map-fixed');
+            mapWrapper.classList.add('js-map-wrapper-height');
+            mainFilter.classList.add('js-main-filters-fixed');
+            return;
+        }
+        mainSection.classList.remove('page-main-scrolled');
+        map.classList.remove('js-map-fixed');
+        mapWrapper.classList.remove('js-map-wrapper-height');
+        mainFilter.classList.remove('js-main-filters-fixed');
+    });
+
+    //Mobile filters show/hide
+
+    var showMobFilterBtn = document.getElementById('js-show-mob-filter-btn');
+    var mobileFilter = document.getElementById('js-mobile-filter');
+    var closeMobFilterBtn = document.getElementById('js-close-mob-filter-btn');
+    var overlay = document.getElementById('js-overlay');
+
+    showMobFilterBtn.addEventListener('click', function (event) {
+        event.preventDefault();
+        mobileFilter.classList.add('js-mobile-filter-show');
+        overlay.style.display = 'block';
+    });
+
+    closeMobFilterBtn.addEventListener('click', function () {
+        mobileFilter.classList.remove('js-mobile-filter-show');
+        overlay.style.display = 'none';
+    });
+
+    overlay.addEventListener('click', function () {
+        mobileFilter.classList.remove('js-mobile-filter-show');
+        overlay.style.display = 'none';
     });
 });
