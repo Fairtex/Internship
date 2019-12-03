@@ -144,6 +144,15 @@
   text-decoration: none
   &:last-of-type
     margin-right: 0
+  &::before
+    content: ""
+    position: absolute
+    bottom: 0
+    right: 0
+    width: 0
+    height: 2px
+    background-color: $nav-font-color
+    transition: 0.2s
 
 .user-nav__authentication
   font-size: 1rem

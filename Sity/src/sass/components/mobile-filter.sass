@@ -1,0 +1,129 @@
+.overlay
+  position: fixed
+  top: 0
+  left: 0
+  z-index: 10
+  width: 100%
+  height: 100%
+  background: rgba(0, 0, 0, 0.5)
+  display: none
+
+.mobile-filter
+  position: absolute
+  top: 400px
+  right: 0
+  z-index: 15
+  display: flex
+  flex-direction: column
+  width: 275px
+  padding:
+    left: 9px
+    right: 23px
+    top: 18px
+    bottom: 80px
+  background-color: #ffffff
+  transform: translateX(100%)
+  transition: all 0.6s ease
+  @media (min-width: $tablet-width)
+    display: none
+
+.js-mobile-filter-show
+  transform: translateX(0)
+
+.mobile-filter__close-btn
+  align-self: flex-end
+  border: none
+  background-color: transparent
+  cursor: pointer
+
+  font-size: 1rem
+  font-weight: 600
+  line-height: 1.25
+  color: $primary-color
+  .mobile-filter__close-icon
+    font-size: 0.75rem
+  
+.mobile-filter__item
+  display: flex
+  flex-direction: column
+  padding:
+    top: 18px
+    bottom: 16px
+    left: 5px
+    right: 0
+  border: none
+  border-bottom: 1px solid #ECECEC
+
+.mobile-filter__title-box
+  display: flex
+  justify-content: space-between
+  align-items: flex-end
+  margin-bottom: 15px
+
+.mobile-filter__title-name
+  font-family: $font-title
+  font-size: 1.25rem
+  line-height: 1.6
+  color: $primary-color
+
+.mobile-filter__warp
+  border: none
+  background-color: transparent
+  position: relative
+  width: 13px
+  height: 10px
+  &::before
+    content: ""
+    position: absolute
+    bottom: 10px
+    left: 0
+    width: 13px
+    height: 3px
+    background-color: #000000
+
+.mobile-filter__label
+  position: relative
+  padding-left: 22px
+  margin-bottom: 8px
+
+  font-size: 1.25rem
+  line-height: 1.68
+  color: $primary-color
+  &::before
+    content: ""
+    position: absolute
+    top: 6px
+    left: 0
+    width: 14px
+    height: 14px
+    border: 1px solid #D6E1E4
+    border-radius: 3px
+    background-color: #ffffff
+
+.mobile-filter__checkbox:checked + .mobile-filter__label::before
+  background-color: #0098D7
+  background-image: url("../assets/img/check.png")
+  background-repeat: no-repeat
+  background-position: center
+
+.mobile-filter__button-box
+  display: flex
+  align-items: center
+  justify-content: space-between
+
+.mobile-filter__button
+  border: 1px solid #0084BA
+  border-radius: 3px
+  background-color: #ffffff
+  width: calc(100%/2 - 4.5px)
+  text-align: center
+  padding:
+    top: 15px
+    bottom: 14px
+  font-family: $font-title
+  font-size: 1.25rem
+  line-height: 1.2
+  color: #0084BA
+  &--blue
+    background-color: #0084BA
+    color: #ffffff

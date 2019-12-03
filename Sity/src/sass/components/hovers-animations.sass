@@ -1,0 +1,26 @@
+.fade
+  animation-name: fade
+  animation-duration: 1.5s
+
+@keyframes fade
+  0%
+    opacity: 0.1
+  100%
+    opacity: 1
+
+.user-nav__link
+  &:hover
+    &::before
+      width: 100%
+
+.main-nav__link
+  &:hover
+    color: #000000
+
+.breadcrumbs__link
+  &:hover
+    color: lighten($primary-color, 30%)
+
+.museums__link
+  &:hover
+    color: lighten(#0084BA, 30%)

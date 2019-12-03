@@ -23,6 +23,7 @@ img
   height: auto
 
 body
+  position: relative
   margin: 0
   padding: 0
   max-width: 100%
@@ -58,6 +59,9 @@ body
 .page-main
   overflow-x: hidden
 
+.page-main-scrolled
+  padding-top: 100px
+
 .page-title
   font-family: $font-title
   font-size: 1.55rem
@@ -87,3 +91,5 @@ body
 @import "components/main-filters"
 @import "components/museums"
 @import "components/map"
+@import "components/mobile-filter"
+@import "components/hovers-animations"

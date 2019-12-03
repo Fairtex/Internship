@@ -4,6 +4,12 @@
     position: relative
     margin: 0
 
+.js-map-fixed
+  position: fixed
+  top: 95px
+  left: 50%
+  z-index: 9
+
 .map__wrapper
   height: 550px
   @media (min-width: $tablet-width)
@@ -12,6 +18,9 @@
     left: 0
     width: 65vw
     height: 100vh
+
+.js-map-wrapper-height
+  height: calc(100vh - 95px)
 
 .map__frame
   width: 100%
