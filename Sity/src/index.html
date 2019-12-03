@@ -22,7 +22,7 @@
         <div class="container page-header__container">
             <div class="top-header">
                 <div class="page-header__logo-box">
-                    <button class="page-header__toggle page-header__toggle--closed"></button>
+                    <button class="page-header__toggle page-header__toggle--closed js-header-toggle"></button>
                     <img src="assets/img/logo.svg" alt="Sity" width="53" height="37" class="page-header__logo">
                 </div>
                 <div class="page-header__menu">
@@ -125,25 +125,39 @@
             Museums photo
         </h2>
         <ul class="slider__list">
-            <li class="slider__item">
+            <li class="slider__item js-slide fade">
                 <picture>
                     <source media="(min-width: 1200px)" srcset="assets/img/guggenheim-desk.jpg">
                     <source media="(min-width: 768px)" srcset="assets/img/guggenheim-tablet.jpg">
                     <img src="assets/img/guggenheim-mobile.jpg" alt="guggenheim-museum" class="slider__image">
                 </picture>
             </li>
+            <li class="slider__item js-slide fade">
+                <picture>
+                    <source media="(min-width: 1200px)" srcset="assets/img/ny-fond-desk.jpg">
+                    <source media="(min-width: 768px)" srcset="assets/img/ny-fond-tablet.jpg">
+                    <img src="assets/img/ny-fond-mobile.jpg" alt="guggenheim-museum" class="slider__image">
+                </picture>
+            </li>
+            <li class="slider__item js-slide fade">
+                <picture>
+                    <source media="(min-width: 1200px)" srcset="assets/img/foursquare-desk.jpg">
+                    <source media="(min-width: 768px)" srcset="assets/img/foursquare-tablet.jpg">
+                    <img src="assets/img/foursquare-mobile.jpg" alt="guggenheim-museum" class="slider__image">
+                </picture>
+            </li>
         </ul>
-        <a href="#" class="slider__btn slider__btn--prev">
+        <a href="#" class="slider__btn slider__btn--prev" id="js-prev-btn">
             <i class="fa fa-chevron-left slider__chevron"></i>
         </a>
-        <a href="#" class="slider__btn slider__btn--next">
+        <a href="#" class="slider__btn slider__btn--next" id="js-next-btn">
             <i class="fa fa-chevron-right slider__chevron"></i>
         </a>
     </section>
-    <main class="page-main">
+    <main class="page-main js-main">
         <div class="container">
             <section class="main-content">
-                <header class="main-filters">
+                <header class="main-filters js-main-filters">
                     <h2 class="main-filters__title">
                         Museums
                     </h2>
@@ -176,12 +190,12 @@
                     <div class="main-filters__mobile-btns mobile-btns">
                         <a href="#" class="mobile-btns__link toggle-btn" id="toggle-map">Map</a>
                         <a href="#" class="mobile-btns__link js-hidden toggle-btn" id="toggle-list">List</a>
-                        <a href="#" class="mobile-btns__link" id="show-btn">Filter <i
+                        <a href="#" class="mobile-btns__link" id="js-show-mob-filter-btn">Filter <i
                                 class="fa fa-chevron-right mobile-btns__icon"></i></a>
                     </div>
                 </header>
                 <div class="main-content__layout">
-                    <article class="museums">
+                    <article class="museums js-museums">
                         <header class="museums__sorting">
                             <select name="museums-sort" class="museums__sort-select controls-select" id="museums-sort">
                                 <option value="" hidden>Sort</option>
@@ -403,8 +417,8 @@
                             </li>
                         </ul>
                     </article>
-                    <div class="map js-hidden">
-                        <div class="map__wrapper">
+                    <div class="map js-hidden js-map">
+                        <div class="map__wrapper js-map-wrapper">
                             <iframe
                                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3026.1019350923366!2d-73.96370570439323!3d40.67172290312324!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25b0a449c39c9%3A0xc62355aa46c985fa!2z0JHRgNGD0LrQu9C40L3RgdC60LjQuSDQvNGD0LfQtdC5!5e0!3m2!1sru!2sru!4v1574784501921!5m2!1sru!2sru"
                                 style="border:0;" allowfullscreen="" class="map__frame"></iframe>
@@ -414,8 +428,93 @@
             </section>
         </div>
     </main>
-    <div class="overlay"></div>
-    <form action="#" class="mobile-filter">
+    <div class="overlay" id="js-overlay"></div>
+    <form action="#" class="mobile-filter" id="js-mobile-filter">
+        <button type="button" class="mobile-filter__close-btn" id="js-close-mob-filter-btn">
+            Filter <i class="fa fa-times mobile-filter__close-icon"></i>
+        </button>
+        <fieldset class="mobile-filter__item">
+            <div class="mobile-filter__title-box">
+                <span class="mobile-filter__title-name">Subcategories</span>
+                <button type="button" class="mobile-filter__warp"></button>
+            </div>
+            <input type="checkbox" class="mobile-filter__checkbox visually-hidden" name="Subcategories" id="art-mus"
+                value="Art" checked>
+            <label for="art-mus" class="mobile-filter__label">
+                Art museums
+            </label>
+            <input type="checkbox" class="mobile-filter__checkbox visually-hidden" name="Subcategories" id="history-mus"
+                value="History">
+            <label for="history-mus" class="mobile-filter__label">
+                History museums
+            </label>
+            <input type="checkbox" class="mobile-filter__checkbox visually-hidden" name="Subcategories" id="outdoor-mus"
+                value="Outdoor">
+            <label for="outdoor-mus" class="mobile-filter__label">
+                Outdoor museums
+            </label>
+        </fieldset>
+        <fieldset class="mobile-filter__item">
+            <div class="mobile-filter__title-box">
+                <span class="mobile-filter__title-name">Neighborhoods</span>
+                <button type="button" class="mobile-filter__warp"></button>
+            </div>
+            <input type="checkbox" class="mobile-filter__checkbox visually-hidden" name="Neighborhoods"
+                id="flatiron-dis" value="Flatiron">
+            <label for="flatiron-dis" class="mobile-filter__label">
+                Flatiron
+            </label>
+            <input type="checkbox" class="mobile-filter__checkbox visually-hidden" name="Neighborhoods" id="chelsea-dis"
+                value="Chelsea">
+            <label for="chelsea-dis" class="mobile-filter__label">
+                Chelsea
+            </label>
+            <input type="checkbox" class="mobile-filter__checkbox visually-hidden" name="Neighborhoods"
+                id="financial-dis" value="Financial-district">
+            <label for="financial-dis" class="mobile-filter__label">
+                Financial district
+            </label>
+            <input type="checkbox" class="mobile-filter__checkbox visually-hidden" name="Neighborhoods"
+                id="east-side-dis" value="East-side">
+            <label for="east-side-dis" class="mobile-filter__label">
+                Upper East Side
+            </label>
+            <input type="checkbox" class="mobile-filter__checkbox visually-hidden" name="Neighborhoods"
+                id="west-side-dis" value="West-side">
+            <label for="west-side-dis" class="mobile-filter__label">
+                Upper West Side
+            </label>
+        </fieldset>
+        <fieldset class="mobile-filter__item">
+            <div class="mobile-filter__title-box">
+                <span class="mobile-filter__title-name">Duration</span>
+                <button type="button" class="mobile-filter__warp"></button>
+            </div>
+            <input type="checkbox" class="mobile-filter__checkbox visually-hidden" name="Duration" id="1hour"
+                value="1hour" checked>
+            <label for="1hour" class="mobile-filter__label">
+                Up to 1 Hour
+            </label>
+            <input type="checkbox" class="mobile-filter__checkbox visually-hidden" name="Duration" id="1-6hour"
+                value="1-6hour">
+            <label for="1-6hour" class="mobile-filter__label">
+                1-6 Hours
+            </label>
+            <input type="checkbox" class="mobile-filter__checkbox visually-hidden" name="Duration" id="less1day"
+                value="less1day">
+            <label for="less1day" class="mobile-filter__label">
+                4 Hours to 1 Day
+            </label>
+            <input type="checkbox" class="mobile-filter__checkbox visually-hidden" name="Duration" id="more1day"
+                value="more1day">
+            <label for="more1day" class="mobile-filter__label">
+                More That 1 Day
+            </label>
+        </fieldset>
+        <div class="mobile-filter__button-box">
+            <button type="reset" class="mobile-filter__button">Reset</button>
+            <button type="submit" class="mobile-filter__button mobile-filter__button--blue">Go</button>
+        </div>
     </form>
     <script src="js/script.js"></script>
 </body>
