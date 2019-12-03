@@ -61,7 +61,7 @@ window.addEventListener('DOMContentLoaded', function () {
             slideIndex = slides.length;
         }
 
-        slides.forEach(function (item) {
+        [].forEach.call(slides, function (item) {
             item.style.display = 'none';
         });
         slides[slideIndex - 1].style.display = 'block';
@@ -88,7 +88,7 @@ window.addEventListener('DOMContentLoaded', function () {
     var mapWrapper = mainSection.querySelector('.js-map-wrapper');
 
     window.addEventListener('scroll', function () {
-        var scrollOffset = window.scrollY;
+        var scrollOffset = window.pageYOffset;
         if (scrollOffset >= mainSection.offsetTop) {
             mainSection.classList.add('page-main-scrolled');
             map.classList.add('js-map-fixed');
