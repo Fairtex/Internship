@@ -9,18 +9,21 @@
   display: none
 
 .mobile-filter
-  position: absolute
-  top: 400px
+  position: fixed
+  top: 0
   right: 0
   z-index: 15
   display: flex
   flex-direction: column
+  justify-content: space-between
   width: 275px
+  height: 100%
+  max-height: 100vh
   padding:
     left: 9px
     right: 23px
     top: 18px
-    bottom: 80px
+    bottom: 30px
   background-color: #ffffff
   transform: translateX(100%)
   transition: all 0.6s ease
@@ -44,13 +47,14 @@
     font-size: 0.75rem
   
 .mobile-filter__item
+  flex-shrink: 1
+  flex-basis: calc(100%/3 - 80px)
   display: flex
   flex-direction: column
+  justify-content: space-between
   padding:
-    top: 18px
-    bottom: 16px
-    left: 5px
-    right: 0
+    top: 10px
+    bottom: 10px
   border: none
   border-bottom: 1px solid #ECECEC
 
@@ -58,7 +62,7 @@
   display: flex
   justify-content: space-between
   align-items: flex-end
-  margin-bottom: 15px
+  margin-bottom: 5px
 
 .mobile-filter__title-name
   font-family: $font-title
@@ -84,7 +88,7 @@
 .mobile-filter__label
   position: relative
   padding-left: 22px
-  margin-bottom: 8px
+
 
   font-size: 1.25rem
   line-height: 1.68
