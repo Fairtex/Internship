@@ -88,18 +88,20 @@ window.addEventListener('DOMContentLoaded', function () {
     var mapWrapper = mainSection.querySelector('.js-map-wrapper');
 
     window.addEventListener('scroll', function () {
-        var scrollOffset = window.pageYOffset;
-        if (scrollOffset >= mainSection.offsetTop) {
-            mainSection.classList.add('page-main-scrolled');
-            map.classList.add('js-map-fixed');
-            mapWrapper.classList.add('js-map-wrapper-height');
-            mainFilter.classList.add('js-main-filters-fixed');
-            return;
+        if (window.innerWidth >= 768) {
+            var scrollOffset = window.pageYOffset;
+            if (scrollOffset >= mainSection.offsetTop) {
+                mainSection.classList.add('page-main-scrolled');
+                map.classList.add('js-map-fixed');
+                mapWrapper.classList.add('js-map-wrapper-height');
+                mainFilter.classList.add('js-main-filters-fixed');
+                return;
+            }
+            mainSection.classList.remove('page-main-scrolled');
+            map.classList.remove('js-map-fixed');
+            mapWrapper.classList.remove('js-map-wrapper-height');
+            mainFilter.classList.remove('js-main-filters-fixed');
         }
-        mainSection.classList.remove('page-main-scrolled');
-        map.classList.remove('js-map-fixed');
-        mapWrapper.classList.remove('js-map-wrapper-height');
-        mainFilter.classList.remove('js-main-filters-fixed');
     });
 
     //Mobile filters show/hide
@@ -123,5 +125,11 @@ window.addEventListener('DOMContentLoaded', function () {
     overlay.addEventListener('click', function () {
         mobileFilter.classList.remove('js-mobile-filter-show');
         overlay.style.display = 'none';
+    });
+
+    window.addEventListener('resize', function () {
+        if (window.innerWidth >= 768) {
+            overlay.style.display = 'none';
+        }
     });
 });
