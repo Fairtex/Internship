@@ -1,0 +1,58 @@
+.sidebar
+  position: relative
+  &::after
+    content: ""
+    position: absolute
+    top: 0
+    right: 0
+    width: 1px
+    height: 480px
+    background-color: #E2E2E2
+
+.cost-toggle
+  display: flex
+  width: 260px
+  min-height: 115px
+  justify-content: space-between
+  align-items: center
+  padding:
+    left: 14px
+    right: 26px
+  border: 1px solid #E2E2E2
+  border-top: none
+  border-right: none
+  cursor: pointer
+  text-decoration: none
+  &--active
+    background-color: #f2f2f2
+    box-shadow: inset 0px 8px 5px 0px rgba(226,226,226,0.42);
+  &:hover
+    .cost-toggle__name,
+    .cost-toggle__price
+      color: lighten($title-color, 45%)
+  &:active
+    .cost-toggle__name,
+    .cost-toggle__price
+      color: #0084BA
+
+.cost-toggle__name
+  font-family: $title-font
+  font-weight: bold
+  color: $title-color
+  font-size: 1.25rem
+  line-height: 1.2
+  max-width: 160px
+
+.cost-toggle__price
+  font-family: $saira-font
+  color: $title-color
+  font-size: 1rem
+  line-height: 1
+  text-align: right
+  width: 60px
+  .cost-price__dollars
+    display: block
+    font-family: $title-font
+    font-weight: bold
+    font-size: 1.687rem
+    line-height: 1

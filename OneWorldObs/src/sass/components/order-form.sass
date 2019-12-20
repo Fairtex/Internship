@@ -1,0 +1,92 @@
+.order-block
+  flex-basis: 261px
+  position: relative
+  top: -80px
+  z-index: 100
+
+.order-block__price
+  padding:
+    top: 20px
+    bottom: 20px
+    right: 21px
+  background-color: #0084BA
+  border-radius: 3px
+  text-align: right
+  font-family: $title-font
+  font-weight: bold
+  color: #ffffff
+  font-size: 2rem
+  line-height: 1.25
+
+.order-form
+  padding:
+    top: 20px
+    left: 8px
+    right: 9px
+    bottom: 19px
+  background-color: #F2F2F2
+  border-radius: 3px
+  
+.order-form__input-block
+  position: relative
+  margin-bottom: 22px
+
+.order-form__input-name
+  position: absolute
+  top: 5px
+  left: 9px
+  font-weight: bold
+  font-size: 0.75rem
+  line-height: 1.25
+  color: #666666
+  text-transform: uppercase
+
+.order-form__icon
+  position: absolute
+  top: 22px
+  right: 9px
+  color: #666666
+
+.order-form__input
+  display: block
+  padding:
+    top: 24px
+    left: 8px
+    bottom: 12px
+    right: 25px
+  width: 243px
+  border: 1px solid #C2C2C2
+  border-radius: 3px
+  font-size: 1rem
+  line-height: 1.2
+  color: #000000
+  &::placeholder
+    color: #c2c2c2
+    text-transform: capitalize
+  &:focus
+    background-color: #F2F2F2
+
+
+.order-form__submit
+  display: block
+  width: 100%
+  border: 2px solid transparent
+  border-radius: 3px
+  background-color: #0084BA
+  text-align: center
+  padding:
+    top: 17px
+    bottom: 16px
+  font-family: $title-font
+  font-weight: bold
+  font-size: 2.06rem
+  line-height: 1
+  color: #ffffff
+  text-transform: capitalize
+  &:hover
+    background-color: #ffffff
+    color: #0084BA
+    border-color: #0084BA
+  &:active
+    color: lighten(#0084BA, 30%)
+    border-color: lighten(#0084BA, 30%)

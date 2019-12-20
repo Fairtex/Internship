@@ -1,0 +1,50 @@
+.page-header
+  border-bottom: 1px solid #E2E2E2
+  background-color: #F2F2F2
+  overflow-x: hidden
+
+.page-header__layout
+  display: flex
+
+.page-header__description
+  padding-top: 57px
+  padding-bottom: 34px
+  flex-basis: 50%
+  flex-shrink: 0
+
+.page-header__title
+  margin: 
+    top: 0
+    left: 0
+    right: 0
+    bottom: 11px
+  width: 311px
+  padding: 0
+  font-family: $title-font
+  font-weight: bold
+  font-size: 2.75rem
+  line-height: 1.05
+  color: $title-color
+
+.page-header__text
+  margin: 0
+  padding: 0
+  width: 457px
+  font-size: 1.0625rem
+  line-height: 1.53
+
+.page-header__img-block
+  position: relative
+
+.page-header__image
+  position: absolute
+  top: 0
+  left: 0
+  width: 50vw
+  height: 100%
+  background: url("../assets/img/header-bg.jpg") no-repeat top center
+  background-size: cover
+  @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) 
+    background-image: url("../assets/img/header-bg2x.jpg")
+
+    

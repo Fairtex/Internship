@@ -1,0 +1,58 @@
+.tour-desc
+  padding: 
+    top: 26px
+    left: 34px
+    right: 41px
+  flex: 640px 1 1
+
+.tour-desc__header
+  padding-bottom: 30px
+
+.tour-desc__title
+  margin: 0
+  margin-bottom: 5px
+  padding: 0
+  font-family: $title-font
+  font-weight: bold
+  color: $title-color
+  font-size: 2.5rem
+  line-height: 1.05
+
+.tour-desc__desc
+  margin: 0
+  padding: 0
+  font-size: 1.375rem
+  color: $title-color
+
+.tab-nav
+  display: flex
+  justify-content: space-between
+  border-bottom: 1px solid #C2C2C2
+
+.tab-nav__link
+  position: relative
+  font-size: 1.25rem
+  line-height: 1.5
+  color: #000000
+  text-decoration: none
+  &:hover
+    color: #0098D7
+  &--active
+    &::after
+      content: ""
+      position: absolute
+      bottom: -2px
+      left: 0
+      width: 100%
+      height: 4px
+      background-color: #0098D7
+
+.overview
+  padding-top: 25px
+
+.overview__text
+  margin: 0
+  margin-bottom: 30px
+  padding: 0
+  font-size: 1.06rem
+  line-height: 1.53
