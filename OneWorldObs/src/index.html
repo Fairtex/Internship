@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Actor&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/datepicker.min.css">
     <link rel="stylesheet" href="css/style.min.css">
     <title>One World Observatory</title>
 </head>
@@ -143,12 +144,12 @@
                         <div class="order-block__price">
                             From $28
                         </div>
-                        <form action="#" class="order-form">
+                        <form action="#" class="order-form js-order-form" data-cost="standart">
                             <div class="order-form__input-block">
                                 <div class="order-form__result-block">
                                     <span class="order-form__input-name">date</span>
                                     <input type="text" class="order-form__input order-form__input--date"
-                                        placeholder="June 27, 2019" required>
+                                        placeholder="June 27, 2019" required readonly id="st-calendar">
                                     <i class="fa fa-calendar fa-lg order-form__icon order-form__icon--calendar"
                                         aria-hidden="true"></i>
                                 </div>
@@ -156,11 +157,12 @@
                             <div class="order-form__input-block">
                                 <div class="order-form__result-block">
                                     <span class="order-form__input-name">tour</span>
-                                    <input type="text" class="order-form__input order-form__input--tour"
+                                    <input type="text"
+                                        class="order-form__input order-form__input--tour js-dropdown-input"
                                         placeholder="Select tour option" required readonly>
                                     <i class="fa fa-chevron-down order-form__icon" aria-hidden="true"></i>
                                 </div>
-                                <div class="order-form__dropdown dropdown-tour">
+                                <div class="order-form__dropdown hide dropdown-tour">
                                     <a href="#" class="dropdown-tour__item">
                                         Morning
                                     </a>
@@ -187,11 +189,12 @@
                             <div class="order-form__input-block">
                                 <div class="order-form__result-block">
                                     <span class="order-form__input-name">tickets</span>
-                                    <input type="text" class="order-form__input order-form__input--tickets"
+                                    <input type="text"
+                                        class="order-form__input order-form__input--tickets js-ticket-input js-dropdown-input"
                                         placeholder="Select tickets" readonly required>
                                     <i class="fa fa-chevron-down order-form__icon" aria-hidden="true"></i>
                                 </div>
-                                <div class="order-form__dropdown dropdown-persons">
+                                <div class="order-form__dropdown hide dropdown-persons">
                                     <div class="dropdown-persons__item js-persons js-persons-adult">
                                         <span class="dropdown-persons__name">
                                             Adults <span class="dropdown-persons__coast">$28</span>
@@ -200,7 +203,7 @@
                                             <button type="button" class="dropdown-persons__minus js-persons-minus">
                                                 <i class="fa fa-minus" aria-hidden="true"></i>
                                             </button>
-                                            <input type="number" step="1" min="0" max="10" name="adult-person" value="0"
+                                            <input type="number" step="1" min="0" max="10" name="adult" value="0"
                                                 class="dropdown-persons__counter" readonly>
                                             <button type="button" class="dropdown-persons__plus js-persons-plus">
                                                 <i class="fa fa-plus" aria-hidden="true"></i>
@@ -215,8 +218,8 @@
                                             <button type="button" class="dropdown-persons__minus js-persons-minus">
                                                 <i class="fa fa-minus" aria-hidden="true"></i>
                                             </button>
-                                            <input type="number" step="1" min="0" max="10" name="senior-person"
-                                                value="0" class="dropdown-persons__counter" readonly>
+                                            <input type="number" step="1" min="0" max="10" name="senior" value="0"
+                                                class="dropdown-persons__counter" readonly>
                                             <button type="button" class="dropdown-persons__plus js-persons-plus">
                                                 <i class="fa fa-plus" aria-hidden="true"></i>
                                             </button>
@@ -230,7 +233,7 @@
                                             <button type="button" class="dropdown-persons__minus js-persons-minus">
                                                 <i class="fa fa-minus" aria-hidden="true"></i>
                                             </button>
-                                            <input type="number" step="1" min="0" max="10" name="youth-person" value="0"
+                                            <input type="number" step="1" min="0" max="10" name="youth" value="0"
                                                 class="dropdown-persons__counter" readonly>
                                             <button type="button" class="dropdown-persons__plus js-persons-plus">
                                                 <i class="fa fa-plus" aria-hidden="true"></i>
@@ -245,7 +248,7 @@
                                             <button type="button" class="dropdown-persons__minus js-persons-minus">
                                                 <i class="fa fa-minus" aria-hidden="true"></i>
                                             </button>
-                                            <input type="number" step="1" min="0" max="10" name="child-person" value="0"
+                                            <input type="number" step="1" min="0" max="10" name="child" value="0"
                                                 class="dropdown-persons__counter" readonly>
                                             <button type="button" class="dropdown-persons__plus js-persons-plus">
                                                 <i class="fa fa-plus" aria-hidden="true"></i>
@@ -254,7 +257,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <button type="submit" class="order-form__submit">Book Now</button>
+                            <button type="submit" class="order-form__submit js-submit-button">Book Now</button>
                         </form>
                     </div>
                 </section>
@@ -346,12 +349,12 @@
                         <div class="order-block__price">
                             From $37
                         </div>
-                        <form action="#" class="order-form">
+                        <form action="#" class="order-form js-order-form" data-cost="premium">
                             <div class="order-form__input-block">
                                 <div class="order-form__result-block">
                                     <span class="order-form__input-name">date</span>
                                     <input type="text" class="order-form__input order-form__input--date"
-                                        placeholder="June 27, 2019" required>
+                                        placeholder="June 27, 2019" required id="pr-calendar">
                                     <i class="fa fa-calendar fa-lg order-form__icon order-form__icon--calendar"
                                         aria-hidden="true"></i>
                                 </div>
@@ -359,11 +362,12 @@
                             <div class="order-form__input-block">
                                 <div class="order-form__result-block">
                                     <span class="order-form__input-name">tour</span>
-                                    <input type="text" class="order-form__input order-form__input--tour"
+                                    <input type="text"
+                                        class="order-form__input order-form__input--tour js-tour-input js-dropdown-input"
                                         placeholder="Select tour option" required readonly>
                                     <i class="fa fa-chevron-down order-form__icon" aria-hidden="true"></i>
                                 </div>
-                                <div class="order-form__dropdown dropdown-tour">
+                                <div class="order-form__dropdown hide dropdown-tour">
                                     <a href="#" class="dropdown-tour__item">
                                         Morning
                                     </a>
@@ -390,11 +394,12 @@
                             <div class="order-form__input-block">
                                 <div class="order-form__result-block">
                                     <span class="order-form__input-name">tickets</span>
-                                    <input type="text" class="order-form__input order-form__input--tickets"
+                                    <input type="text"
+                                        class="order-form__input order-form__input--tickets js-ticket-input js-dropdown-input"
                                         placeholder="Select tickets" readonly required>
                                     <i class="fa fa-chevron-down order-form__icon" aria-hidden="true"></i>
                                 </div>
-                                <div class="order-form__dropdown dropdown-persons">
+                                <div class="order-form__dropdown hide dropdown-persons">
                                     <div class="dropdown-persons__item js-persons js-persons-adult">
                                         <span class="dropdown-persons__name">
                                             Adults <span class="dropdown-persons__coast">$28</span>
@@ -403,7 +408,7 @@
                                             <button type="button" class="dropdown-persons__minus js-persons-minus">
                                                 <i class="fa fa-minus" aria-hidden="true"></i>
                                             </button>
-                                            <input type="number" step="1" min="0" max="10" name="adult-person" value="0"
+                                            <input type="number" step="1" min="0" max="10" name="adult" value="0"
                                                 class="dropdown-persons__counter" readonly>
                                             <button type="button" class="dropdown-persons__plus js-persons-plus">
                                                 <i class="fa fa-plus" aria-hidden="true"></i>
@@ -418,8 +423,8 @@
                                             <button type="button" class="dropdown-persons__minus js-persons-minus">
                                                 <i class="fa fa-minus" aria-hidden="true"></i>
                                             </button>
-                                            <input type="number" step="1" min="0" max="10" name="senior-person"
-                                                value="0" class="dropdown-persons__counter" readonly>
+                                            <input type="number" step="1" min="0" max="10" name="senior" value="0"
+                                                class="dropdown-persons__counter" readonly>
                                             <button type="button" class="dropdown-persons__plus js-persons-plus">
                                                 <i class="fa fa-plus" aria-hidden="true"></i>
                                             </button>
@@ -433,7 +438,7 @@
                                             <button type="button" class="dropdown-persons__minus js-persons-minus">
                                                 <i class="fa fa-minus" aria-hidden="true"></i>
                                             </button>
-                                            <input type="number" step="1" min="0" max="10" name="youth-person" value="0"
+                                            <input type="number" step="1" min="0" max="10" name="youth" value="0"
                                                 class="dropdown-persons__counter" readonly>
                                             <button type="button" class="dropdown-persons__plus js-persons-plus">
                                                 <i class="fa fa-plus" aria-hidden="true"></i>
@@ -448,7 +453,7 @@
                                             <button type="button" class="dropdown-persons__minus js-persons-minus">
                                                 <i class="fa fa-minus" aria-hidden="true"></i>
                                             </button>
-                                            <input type="number" step="1" min="0" max="10" name="child-person" value="0"
+                                            <input type="number" step="1" min="0" max="10" name="child" value="0"
                                                 class="dropdown-persons__counter" readonly>
                                             <button type="button" class="dropdown-persons__plus js-persons-plus">
                                                 <i class="fa fa-plus" aria-hidden="true"></i>
@@ -457,7 +462,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <button type="submit" class="order-form__submit">Book Now</button>
+                            <button type="submit" class="order-form__submit js-submit-button">Book Now</button>
                         </form>
                     </div>
                 </section>
@@ -472,8 +477,13 @@
             </span>
             <button type="button" class="modal-popup__close-bnt js-close-popup"></button>
         </div>
+        <div class="modal-popup__content js-modal-content">
+            <form action="#">
 
+            </form>
+        </div>
     </div>
+    <script src="js/datepicker.min.js"></script>
     <script src="js/script.js"></script>
 </body>
 
