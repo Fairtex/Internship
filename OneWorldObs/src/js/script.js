@@ -33,9 +33,9 @@ window.addEventListener('DOMContentLoaded', function () {
             if (tabNavLinks[x].classList.contains('tab-nav__link--active')) {
                 hideTabs(0, activeTabArticles);
                 showTabs(x, activeTabArticles);
-            } 
+            }
         }
-        
+
         tabNav.addEventListener('click', function (event) {
             let target = event.target;
             if (target && target.classList.contains('js-tab-toggle')) {
@@ -86,7 +86,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
     Array.prototype.forEach.call(document.querySelectorAll('.js-order-form:not(.processed)'), form => {
         const ticketsInput = form.querySelector('.js-ticket-input');
-        const tourInput = form.querySelector('.js-tour-input');
+        const inputBlocks = form.querySelectorAll('.order-form__input-block');
         const dropdownInputs = form.querySelectorAll('.js-dropdown-input');
         const buttonsPlus = form.querySelectorAll('.js-persons-plus');
         const buttonsMinus = form.querySelectorAll('.js-persons-minus');
@@ -96,7 +96,7 @@ window.addEventListener('DOMContentLoaded', function () {
         const maxTickets = 10;
         let totalTickets = 0;
         console.log(formType);
-        
+
         const prices = {
             premium: {
                 adult: 37,
@@ -129,40 +129,119 @@ window.addEventListener('DOMContentLoaded', function () {
             ticketsInput.value = total;
         };
 
-        
-
-        Array.prototype.forEach.call(dropdownInputs, dropdownInput => {
-            const inputParrent = dropdownInput.parentElement;
-            const dropdownBlock = inputParrent.nextElementSibling;
-            dropdownInput.addEventListener('click', () => {
-                dropdownBlock.classList.toggle('hide');
+        const disabledPlus = () => {
+            Array.prototype.forEach.call(buttonsPlus, buttonPlus => {
+                buttonPlus.classList.add('js-persons-btn-disabled');
             });
+        };
+
+        const activatePlus = () => {
+            Array.prototype.forEach.call(buttonsPlus, buttonPlus => {
+                buttonPlus.classList.remove('js-persons-btn-disabled');
+            });
+        };
+
+        const disabledMinus = () => {
+            Array.prototype.forEach.call(buttonsMinus, buttonMinus => {
+                buttonMinus.classList.add('js-persons-btn-disabled');
+            });
+        };
+
+        const activateMinus = () => {
+            Array.prototype.forEach.call(buttonsMinus, buttonMinus => {
+                buttonMinus.classList.remove('js-persons-btn-disabled');
+            });
+        };
+
+        Array.prototype.forEach.call(inputBlocks, inputBlock => {
+
+            const input = inputBlock.querySelector('.order-form__input');
+            const icon = inputBlock.querySelector('.order-form__icon');
+            const dropdownBlock = inputBlock.querySelector('.order-form__dropdown');
+            const tourInput = inputBlock.querySelector('.js-tour-input');
+            const dropdownTours = inputBlock.querySelectorAll('.dropdown-tour__item');
+
+            inputBlock.addEventListener('click', (event) => {
+                let target = event.target;
+                if ((target == input) || (target == icon)) {
+                    if (icon.classList.contains('fa-chevron-down')) {
+                        icon.classList.remove('fa-chevron-down');
+                        icon.classList.add('fa-chevron-up');
+                    } else {
+                        icon.classList.add('fa-chevron-down');
+                        icon.classList.remove('fa-chevron-up');
+                    }
+                    dropdownBlock.classList.toggle('hide');
+                }
+            });
+
+            Array.prototype.forEach.call(dropdownTours, dropdownTour => {
+                const tourDescription = dropdownTour.querySelector('.js-tour-description');
+                const message = tourDescription.cloneNode(true);
+                message.classList.remove('hide');
+                dropdownTour.addEventListener('click', (event) => {
+                    if (inputBlock.children.length > 2) {
+                        inputBlock.removeChild(inputBlock.lastElementChild);
+                    }
+                    event.preventDefault();
+                    if (icon.classList.contains('fa-chevron-down')) {
+                        icon.classList.remove('fa-chevron-down');
+                        icon.classList.add('fa-chevron-up');
+                    } else {
+                        icon.classList.add('fa-chevron-down');
+                        icon.classList.remove('fa-chevron-up');
+                    }
+                    input.value = dropdownTour.text;
+                    dropdownBlock.classList.add('hide');
+                    inputBlock.appendChild(message);
+                });
+            });
+
         });
 
         Array.prototype.forEach.call(buttonsPlus, buttonPlus => {
             buttonPlus.addEventListener('click', () => {
                 const input = buttonPlus.previousElementSibling;
+                if (Number(input.value) >= 10) {
+                    buttonPlus.classList.add('js-persons-btn-disabled');
+                    return;
+                }
+                if (totalTickets >= maxTickets) {
+                    disabledPlus();
+                    return;
+                }
+                activateMinus();
+                totalTickets++;
+                console.log(totalTickets);
                 input.value = Number(input.value) + 1;
                 tickets[input.name]++;
                 updateValue();
-                totalTickets++;
                 //проверка на 10
             });
         });
         Array.prototype.forEach.call(buttonsMinus, buttonMinus => {
             buttonMinus.addEventListener('click', () => {
                 const input = buttonMinus.nextElementSibling;
+                if ((Number(input.value) == 0)  && (totalTickets == 0)) {
+                    disabledMinus();
+                    return;
+                } else if (Number(input.value) == 0) {
+                    buttonMinus.classList.add('js-persons-btn-disabled');
+                    return;
+                }
+                activatePlus();
+                totalTickets--;
+                console.log(totalTickets);
                 input.value = Number(input.value) - 1;
                 tickets[input.name]--;
                 updateValue();
-                totalTickets--;
                 //проверка на 0
             });
         });
         form.classList.add('processed');
         buttonSubmit.addEventListener('click', event => {
             event.preventDefault();
-            console.log(prices[formType].adult * tickets.adult );
+            console.log(prices[formType].adult * tickets.adult);
             modalPopup.innerHTML = tickets.adult;
         });
     });
