@@ -1,0 +1,122 @@
+.overlay
+  position: fixed
+  top: 0
+  left: 0
+  z-index: 10
+  width: 100%
+  height: 100%
+  background: rgba(0, 0, 0, 0.5)
+
+
+.modal-popup
+  position: fixed
+  top: 175px
+  left: 50%
+  transform: translateX(-50%)
+  z-index: 15
+  padding:
+    top: 28px
+    left: 20px
+    right: 20px
+    bottom: 41px
+  width: 547px
+  min-height: 385px
+  border-radius: 3px
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.49)
+  background-color: #ffffff 
+
+.modal-popup__header
+  display: flex
+  justify-content: space-between
+  padding-bottom: 23px
+  border-bottom: 1px solid #E2E2E2
+
+.modal-popup__title
+  margin: 0
+  padding: 0
+  font-family: $actor-font
+  font-weight: normal
+  font-size: 1.75rem
+  line-height: 1
+  color: $title-color
+
+.modal-popup__close-bnt
+  padding: 0
+  border: none
+  background-color: transparent
+  color: #E2E2E2
+
+.modal-popup__content
+  padding:
+    left: 30px
+    right: 30px
+    top: 26px
+    bottom: 30px
+
+.modal-popup__tour-description
+  display: flex
+  padding: 0 30px
+
+.modal-popup__tour
+  margin-left: 23px
+
+.modal-popup__tour-name
+  font-family: $actor-font
+  font-weight: normal
+  font-size: 1.375rem
+  line-height: 1.1
+  color: $title-color
+  margin-bottom: 5px
+
+.modal-popup__tour-cost
+  font-family: $actor-font
+  font-weight: normal
+  font-size: 1.25rem
+  line-height: 1.1
+  color: #0084BA
+
+.modal-popup__order-info
+  padding-top: 30px
+
+.modal-popup__tel-comment,
+.modal-popup__text
+  margin: 0
+  margin-bottom: 9px
+  padding: 0
+  line-height: 1.53
+
+.modal-popup__ticket
+  padding: 5px 10px
+
+.modal-popup__ticket-item
+  line-height: 1.53
+  &:last-of-type
+    font-weight: bold
+
+.modal-popup__tel-form
+  display: flex
+  align-items: center
+  padding: 0 30px
+
+.tel-form__input
+  background-color: #ffffff
+  border: 1px solid #C2C2C2
+  border-radius: 3px
+  padding:
+    top: 18px
+    bottom: 19px
+    left: 8px
+    right: 10px
+  width: 243px
+  font-size: 0.875rem
+  line-height: 1.25
+  color: #000000
+  &::placeholder
+    text-transform: capitalize
+    color: #666666
+
+.modal-popup__submit
+  margin-left: 26px
+  width: 144px
+  padding: 14px 0
+  font-size: 1.25rem
