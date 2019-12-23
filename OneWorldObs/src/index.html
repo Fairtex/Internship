@@ -158,31 +158,59 @@
                                 <div class="order-form__result-block">
                                     <span class="order-form__input-name">tour</span>
                                     <input type="text"
-                                        class="order-form__input order-form__input--tour js-dropdown-input"
+                                        class="order-form__input order-form__input--tour js-dropdown-input js-tour-input"
                                         placeholder="Select tour option" required readonly>
                                     <i class="fa fa-chevron-down order-form__icon" aria-hidden="true"></i>
                                 </div>
                                 <div class="order-form__dropdown hide dropdown-tour">
-                                    <a href="#" class="dropdown-tour__item">
-                                        Morning
+                                    <a href="#" class="dropdown-tour__item">Morning
+                                        <div class="dropdown-tour__description hide js-tour-description">
+                                            <span class="dropdown-tour__description--bold"> Details: </span> Standart
+                                            Morning admission to One World Observatory between
+                                            3pm and 4pm. Exact admission time will be confirmed at checkout.
+                                        </div>
                                     </a>
-                                    <a href="#" class="dropdown-tour__item">
-                                        Mid-day
+                                    <a href="#" class="dropdown-tour__item">Mid-day
+                                        <div class="dropdown-tour__description hide js-tour-description">
+                                            <span class="dropdown-tour__description--bold"> Details: </span> Standart
+                                            Mid-day admission to One World Observatory between
+                                            3pm and 4pm. Exact admission time will be confirmed at checkout.
+                                        </div>
                                     </a>
-                                    <a href="#" class="dropdown-tour__item">
-                                        Early Afternoon
+                                    <a href="#" class="dropdown-tour__item">Early Afternoon
+                                        <div class="dropdown-tour__description hide js-tour-description">
+                                            <span class="dropdown-tour__description--bold"> Details: </span> Standart
+                                            Early Afternoon admission to One World Observatory between
+                                            3pm and 4pm. Exact admission time will be confirmed at checkout.
+                                        </div>
                                     </a>
-                                    <a href="#" class="dropdown-tour__item">
-                                        Late Afternoon
+                                    <a href="#" class="dropdown-tour__item">Late Afternoon
+                                        <div class="dropdown-tour__description hide js-tour-description">
+                                            <span class="dropdown-tour__description--bold"> Details: </span> Standart
+                                            Late Afternoon admission to One World Observatory between
+                                            3pm and 4pm. Exact admission time will be confirmed at checkout.
+                                        </div>
                                     </a>
-                                    <a href="#" class="dropdown-tour__item">
-                                        Early Evening
+                                    <a href="#" class="dropdown-tour__item">Early Evening
+                                        <div class="dropdown-tour__description hide js-tour-description">
+                                            <span class="dropdown-tour__description--bold"> Details: </span> Standart
+                                            Early Evening admission to One World Observatory between
+                                            3pm and 4pm. Exact admission time will be confirmed at checkout.
+                                        </div>
                                     </a>
-                                    <a href="#" class="dropdown-tour__item">
-                                        Late Evening
+                                    <a href="#" class="dropdown-tour__item">Late Evening
+                                        <div class="dropdown-tour__description hide js-tour-description">
+                                            <span class="dropdown-tour__description--bold"> Details: </span> Standart
+                                            Late Evening admission to One World Observatory between
+                                            3pm and 4pm. Exact admission time will be confirmed at checkout.
+                                        </div>
                                     </a>
-                                    <a href="#" class="dropdown-tour__item">
-                                        Mid-Night
+                                    <a href="#" class="dropdown-tour__item">Mid-Night
+                                        <div class="dropdown-tour__description hide js-tour-description">
+                                            <span class="dropdown-tour__description--bold"> Details: </span> Standart
+                                            Mid-Night admission to One World Observatory between
+                                            3pm and 4pm. Exact admission time will be confirmed at checkout.
+                                        </div>
                                     </a>
                                 </div>
                             </div>
@@ -200,7 +228,7 @@
                                             Adults <span class="dropdown-persons__coast">$28</span>
                                         </span>
                                         <div class="dropdown-persons__select-block">
-                                            <button type="button" class="dropdown-persons__minus js-persons-minus">
+                                            <button type="button" class="dropdown-persons__minus js-persons-btn-disabled js-persons-minus">
                                                 <i class="fa fa-minus" aria-hidden="true"></i>
                                             </button>
                                             <input type="number" step="1" min="0" max="10" name="adult" value="0"
@@ -215,7 +243,7 @@
                                             Senior <span class="dropdown-persons__coast">$26</span>
                                         </span>
                                         <div class="dropdown-persons__select-block">
-                                            <button type="button" class="dropdown-persons__minus js-persons-minus">
+                                            <button type="button" class="dropdown-persons__minus js-persons-btn-disabled js-persons-minus">
                                                 <i class="fa fa-minus" aria-hidden="true"></i>
                                             </button>
                                             <input type="number" step="1" min="0" max="10" name="senior" value="0"
@@ -230,7 +258,7 @@
                                             Youth <span class="dropdown-persons__coast">$14</span>
                                         </span>
                                         <div class="dropdown-persons__select-block">
-                                            <button type="button" class="dropdown-persons__minus js-persons-minus">
+                                            <button type="button" class="dropdown-persons__minus js-persons-btn-disabled js-persons-minus">
                                                 <i class="fa fa-minus" aria-hidden="true"></i>
                                             </button>
                                             <input type="number" step="1" min="0" max="10" name="youth" value="0"
@@ -245,7 +273,7 @@
                                             Child <span class="dropdown-persons__coast">Free</span>
                                         </span>
                                         <div class="dropdown-persons__select-block">
-                                            <button type="button" class="dropdown-persons__minus js-persons-minus">
+                                            <button type="button" class="dropdown-persons__minus js-persons-btn-disabled js-persons-minus">
                                                 <i class="fa fa-minus" aria-hidden="true"></i>
                                             </button>
                                             <input type="number" step="1" min="0" max="10" name="child" value="0"
@@ -257,7 +285,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <button type="submit" class="order-form__submit js-submit-button">Book Now</button>
+                            <button type="submit" class="order-form__submit submit-btn js-submit-button">Book
+                                Now</button>
                         </form>
                     </div>
                 </section>
@@ -368,26 +397,54 @@
                                     <i class="fa fa-chevron-down order-form__icon" aria-hidden="true"></i>
                                 </div>
                                 <div class="order-form__dropdown hide dropdown-tour">
-                                    <a href="#" class="dropdown-tour__item">
-                                        Morning
+                                    <a href="#" class="dropdown-tour__item">Morning
+                                        <div class="dropdown-tour__description hide js-tour-description">
+                                            <span class="dropdown-tour__description--bold"> Details: </span> Premium
+                                            Morning admission to One World Observatory between
+                                            3pm and 4pm. Exact admission time will be confirmed at checkout.
+                                        </div>
                                     </a>
-                                    <a href="#" class="dropdown-tour__item">
-                                        Mid-day
+                                    <a href="#" class="dropdown-tour__item">Mid-day
+                                        <div class="dropdown-tour__description hide js-tour-description">
+                                            <span class="dropdown-tour__description--bold"> Details: </span> Premium
+                                            Mid-day admission to One World Observatory between
+                                            3pm and 4pm. Exact admission time will be confirmed at checkout.
+                                        </div>
                                     </a>
-                                    <a href="#" class="dropdown-tour__item">
-                                        Early Afternoon
+                                    <a href="#" class="dropdown-tour__item">Early Afternoon
+                                        <div class="dropdown-tour__description hide js-tour-description">
+                                            <span class="dropdown-tour__description--bold"> Details: </span> Premium
+                                            Early Afternoon admission to One World Observatory between
+                                            3pm and 4pm. Exact admission time will be confirmed at checkout.
+                                        </div>
                                     </a>
-                                    <a href="#" class="dropdown-tour__item">
-                                        Late Afternoon
+                                    <a href="#" class="dropdown-tour__item">Late Afternoon
+                                        <div class="dropdown-tour__description hide js-tour-description">
+                                            <span class="dropdown-tour__description--bold"> Details: </span> Premium
+                                            Late Afternoon admission to One World Observatory between
+                                            3pm and 4pm. Exact admission time will be confirmed at checkout.
+                                        </div>
                                     </a>
-                                    <a href="#" class="dropdown-tour__item">
-                                        Early Evening
+                                    <a href="#" class="dropdown-tour__item">Early Evening
+                                        <div class="dropdown-tour__description hide js-tour-description">
+                                            <span class="dropdown-tour__description--bold"> Details: </span> Premium
+                                            Early Evening admission to One World Observatory between
+                                            3pm and 4pm. Exact admission time will be confirmed at checkout.
+                                        </div>
                                     </a>
-                                    <a href="#" class="dropdown-tour__item">
-                                        Late Evening
+                                    <a href="#" class="dropdown-tour__item">Late Evening
+                                        <div class="dropdown-tour__description hide js-tour-description">
+                                            <span class="dropdown-tour__description--bold"> Details: </span> Premium
+                                            Late Evening admission to One World Observatory between
+                                            3pm and 4pm. Exact admission time will be confirmed at checkout.
+                                        </div>
                                     </a>
-                                    <a href="#" class="dropdown-tour__item">
-                                        Mid-Night
+                                    <a href="#" class="dropdown-tour__item">Mid-Night
+                                        <div class="dropdown-tour__description hide js-tour-description">
+                                            <span class="dropdown-tour__description--bold"> Details: </span> Premium
+                                            Mid-Night admission to One World Observatory between
+                                            3pm and 4pm. Exact admission time will be confirmed at checkout.
+                                        </div>
                                     </a>
                                 </div>
                             </div>
@@ -405,7 +462,7 @@
                                             Adults <span class="dropdown-persons__coast">$28</span>
                                         </span>
                                         <div class="dropdown-persons__select-block">
-                                            <button type="button" class="dropdown-persons__minus js-persons-minus">
+                                            <button type="button" class="dropdown-persons__minus js-persons-btn-disabled js-persons-minus">
                                                 <i class="fa fa-minus" aria-hidden="true"></i>
                                             </button>
                                             <input type="number" step="1" min="0" max="10" name="adult" value="0"
@@ -420,7 +477,7 @@
                                             Senior <span class="dropdown-persons__coast">$26</span>
                                         </span>
                                         <div class="dropdown-persons__select-block">
-                                            <button type="button" class="dropdown-persons__minus js-persons-minus">
+                                            <button type="button" class="dropdown-persons__minus js-persons-btn-disabled js-persons-minus">
                                                 <i class="fa fa-minus" aria-hidden="true"></i>
                                             </button>
                                             <input type="number" step="1" min="0" max="10" name="senior" value="0"
@@ -435,7 +492,7 @@
                                             Youth <span class="dropdown-persons__coast">$14</span>
                                         </span>
                                         <div class="dropdown-persons__select-block">
-                                            <button type="button" class="dropdown-persons__minus js-persons-minus">
+                                            <button type="button" class="dropdown-persons__minus js-persons-btn-disabled js-persons-minus">
                                                 <i class="fa fa-minus" aria-hidden="true"></i>
                                             </button>
                                             <input type="number" step="1" min="0" max="10" name="youth" value="0"
@@ -450,7 +507,7 @@
                                             Child <span class="dropdown-persons__coast">Free</span>
                                         </span>
                                         <div class="dropdown-persons__select-block">
-                                            <button type="button" class="dropdown-persons__minus js-persons-minus">
+                                            <button type="button" class="dropdown-persons__minus js-persons-btn-disabled js-persons-minus">
                                                 <i class="fa fa-minus" aria-hidden="true"></i>
                                             </button>
                                             <input type="number" step="1" min="0" max="10" name="child" value="0"
@@ -462,26 +519,56 @@
                                     </div>
                                 </div>
                             </div>
-                            <button type="submit" class="order-form__submit js-submit-button">Book Now</button>
+                            <button type="submit" class="order-form__submit submit-btn js-submit-button">Book
+                                Now</button>
                         </form>
                     </div>
                 </section>
             </div>
         </div>
     </main>
-    <div class="overlay"></div>
-    <div class="modal-popup">
-        <div class="modal-popup__header">
-            <span class="modal-popup__title">
+    <div class="overlay hide"></div>
+    <div class="modal-popup hide">
+        <header class="modal-popup__header">
+            <h4 class="modal-popup__title">
                 Text to Phone
-            </span>
-            <button type="button" class="modal-popup__close-bnt js-close-popup"></button>
-        </div>
+            </h4>
+            <button type="button" class="modal-popup__close-bnt js-close-popup">
+                <i class="fa fa-times fa-2x"></i>
+            </button>
+        </header>
         <div class="modal-popup__content js-modal-content">
-            <form action="#">
-
-            </form>
+            <div class="modal-popup__tour-description">
+                <img src="assets/img/popup-img.jpg" alt="Observatory" class="modal-popup__image">
+                <div class="modal-popup__tour">
+                    <div class="modal-popup__tour-name">
+                        One World Observatory Admission
+                    </div>
+                    <div class="modal-popup__tour-cost">
+                        from <span class="js-tour-cost"></span> per person
+                    </div>
+                </div>
+            </div>
+            <div class="modal-popup__order-info">
+                <p class="modal-popup__tel-comment">
+                    Text a link to your phone so we can notify you about the event
+                </p>
+                <div class="modal-popup__text">
+                    You chose:
+                </div>
+                <div class="modal-popup__ticket js-modal-popup-ticket">
+                    <div class="modal-popup__ticket-item js-modal-popup-ticket-text"></div>
+                    <div class="modal-popup__ticket-item js-modal-popup-ticket-text"></div>
+                    <div class="modal-popup__ticket-item js-modal-popup-ticket-text"></div>
+                    <div class="modal-popup__ticket-item js-modal-popup-ticket-text"></div>
+                    <div class="modal-popup__ticket-item js-modal-popup-ticket-text"></div>
+                </div>
+            </div>
         </div>
+        <form action="#" class="modal-popup__tel-form tel-form">
+            <input type="tel" placeholder="Phone Number" required class="tel-form__input">
+            <button type="submit" class="modal-popup__submit submit-btn js-modal-popup-submit">Book now</button>
+        </form>
     </div>
     <script src="js/datepicker.min.js"></script>
     <script src="js/script.js"></script>
