@@ -54,6 +54,44 @@ body
 @import "components/order-form"
 @import "components/dropdowns"
 @import "components/popup"
+@import "components/calendar"
 
 .hide
   display: none
+
+.js-empty-input
+  border-color: #E0B4B4
+  background-color: #FFEFEE
+
+.js-input-error
+  &::before
+    content: 'This field is required'
+    position: absolute
+    bottom: 47px
+    left: 50%
+    transform: translateX(-50%)
+    width: 164px
+    height: 39px
+    padding:
+      top: 9px
+      bottom: 11px
+    text-align: center
+    background-color: #FFFFFF
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.265087)
+    border-radius: 3px
+    font-size: 1rem
+    line-height: 1.187
+    color: #000000
+    z-index: 10
+  &::after
+    content: ''
+    position: absolute
+    bottom: 36px
+    left: 50%
+    transform: translateX(-50%) rotate(180deg)
+    width: 0
+    height: 0
+    border-left: 20px solid transparent
+    border-right: 20px solid transparent
+    border-bottom: 26px solid #FFFFFF
+    z-index: 15

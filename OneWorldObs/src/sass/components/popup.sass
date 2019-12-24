@@ -10,7 +10,7 @@
 
 .modal-popup
   position: fixed
-  top: 175px
+  top: 85px
   left: 50%
   transform: translateX(-50%)
   z-index: 15
@@ -86,10 +86,12 @@
   line-height: 1.53
 
 .modal-popup__ticket
-  padding: 5px 10px
+  padding: 0 10px
 
 .modal-popup__ticket-item
   line-height: 1.53
+  .name
+    text-transform: capitalize
   &:last-of-type
     font-weight: bold
 
@@ -97,6 +99,9 @@
   display: flex
   align-items: center
   padding: 0 30px
+
+.modal-popup__tel-block
+  position: relative
 
 .tel-form__input
   background-color: #ffffff
@@ -120,3 +125,20 @@
   width: 144px
   padding: 14px 0
   font-size: 1.25rem
+
+.success-popup
+  position: fixed
+  top: 90px
+  left: 50%
+  transform: translateX(-50%)
+  width: 40%
+  background-color: #ffffff
+  text-align: center
+  padding:
+    top: 15px
+    bottom: 15px
+  font-family: $saira-font
+  color: $title-color
+  font-size: 4.5rem
+  line-height: 1.5
+  z-index: 20
