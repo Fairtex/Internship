@@ -79,23 +79,35 @@ window.addEventListener('DOMContentLoaded', function () {
 
     //настройка плагина js-datepicker для календаря
 
-    const stPicker = datepicker('#st-calendar');
-    const prPicker = datepicker('#pr-calendar');
+    const stPicker = datepicker('#st-calendar', {
+        customDays: ['SU', 'MO', 'TU', 'WE', 'TH', 'FR', 'SA'],
+        dateSelected: new Date(2018, 2, 29),
+        showAllDates: true
+    });
+    const prPicker = datepicker('#pr-calendar', {
+        customDays: ['SU', 'MO', 'TU', 'WE', 'TH', 'FR', 'SA'],
+        dateSelected: new Date(2018, 2, 29),
+        showAllDates: true
+    });
 
     //Форма заказа
 
     Array.prototype.forEach.call(document.querySelectorAll('.js-order-form:not(.processed)'), form => {
         const ticketsInput = form.querySelector('.js-ticket-input');
+        const calendarInput = form.querySelector('.js-calendar');
         const inputBlocks = form.querySelectorAll('.order-form__input-block');
-        const dropdownInputs = form.querySelectorAll('.js-dropdown-input');
         const buttonsPlus = form.querySelectorAll('.js-persons-plus');
         const buttonsMinus = form.querySelectorAll('.js-persons-minus');
         const buttonSubmit = form.querySelector('.js-submit-button');
         const modalPopup = document.querySelector('.modal-popup');
+        const closeModalBtn = modalPopup.querySelector('.js-close-popup');
+        const submitModal = modalPopup.querySelector('.js-modal-popup-submit');
+        const overlay = document.querySelector('.overlay');
+        const telInput = modalPopup.querySelector('.js-modal-tel');
         const formType = form.dataset.cost; //для обращения к обьектам цен через []
         const maxTickets = 10;
         let totalTickets = 0;
-        console.log(formType);
+        let order = {};
 
         const prices = {
             premium: {
@@ -120,13 +132,33 @@ window.addEventListener('DOMContentLoaded', function () {
         };
 
         const updateValue = () => {
-            let total = '';
+            let string = '';
             for (let key of Object.keys(tickets)) {
                 if (Number(tickets[key]) > 0) {
-                    total = total + `${key} X ${tickets[key]} `;
+                    string = string + `${key} X ${tickets[key]} `;
                 }
             }
-            ticketsInput.value = total;
+            ticketsInput.value = string;
+        };
+
+        const showTotalPrice = () => {
+            let totalPrice = 0;
+            const totalPriceBlock = form.querySelector('.js-total-price');
+            for (let key of Object.keys(tickets)) {
+                if (Number(tickets[key]) > 0) {
+                    totalPrice = totalPrice + (prices[formType][key] * tickets[key]);
+                }
+            }
+            if (totalPrice > 0) {
+                if (totalPriceBlock.classList.contains('hide')) {
+                    totalPriceBlock.classList.remove('hide');
+                }
+                totalPriceBlock.textContent = `Subtotal: $${totalPrice}`;
+            } else {
+                if (!totalPriceBlock.classList.contains('hide')) {
+                    totalPriceBlock.classList.add('hide');
+                }
+            }
         };
 
         const disabledPlus = () => {
@@ -153,14 +185,33 @@ window.addEventListener('DOMContentLoaded', function () {
             });
         };
 
+        const showPopup = (obj) => {
+            let confirmedOrder = obj;
+            const ticketBlock = modalPopup.querySelector('.js-modal-popup-ticket');
+            ticketBlock.innerText = '';
+            modalPopup.classList.remove('hide');
+            overlay.classList.remove('hide');
+            document.body.style.overflow = "hidden";
+            for (let key of Object.keys(confirmedOrder)) {
+                if (key == 'subtotal') {
+                    ticketBlock.insertAdjacentHTML('beforeend', `<div class="modal-popup__ticket-item"><span class="name">${key}</span>: $${confirmedOrder[key]}</div>`);
+                } else {
+                    ticketBlock.insertAdjacentHTML('beforeend', `<div class="modal-popup__ticket-item"><span class="name">${key}</span>: ${confirmedOrder[key]} person</div>`);
+                }
+            }
+        };
+
+        const hideModal = (popup) => {
+            overlay.classList.add('hide');
+            popup.classList.add('hide');
+            document.body.style.overflow = "auto";
+        };
+
         Array.prototype.forEach.call(inputBlocks, inputBlock => {
-
-            const input = inputBlock.querySelector('.order-form__input');
-            const icon = inputBlock.querySelector('.order-form__icon');
+            const input = inputBlock.querySelector('.js-dropdown-input');
+            const icon = inputBlock.querySelector('.js-dropdown-icon');
             const dropdownBlock = inputBlock.querySelector('.order-form__dropdown');
-            const tourInput = inputBlock.querySelector('.js-tour-input');
             const dropdownTours = inputBlock.querySelectorAll('.dropdown-tour__item');
-
             inputBlock.addEventListener('click', (event) => {
                 let target = event.target;
                 if ((target == input) || (target == icon)) {
@@ -170,6 +221,10 @@ window.addEventListener('DOMContentLoaded', function () {
                     } else {
                         icon.classList.add('fa-chevron-down');
                         icon.classList.remove('fa-chevron-up');
+                    }
+                    if (input.classList.contains('js-empty-input')) {
+                        input.classList.remove('js-empty-input');
+                        input.parentNode.classList.remove('js-input-error');
                     }
                     dropdownBlock.classList.toggle('hide');
                 }
@@ -199,6 +254,13 @@ window.addEventListener('DOMContentLoaded', function () {
 
         });
 
+        calendarInput.addEventListener('click', () => {
+            if (calendarInput.classList.contains('js-empty-input')) {
+                calendarInput.classList.remove('js-empty-input');
+                calendarInput.parentNode.classList.remove('js-input-error');
+            }
+        });
+
         Array.prototype.forEach.call(buttonsPlus, buttonPlus => {
             buttonPlus.addEventListener('click', () => {
                 const input = buttonPlus.previousElementSibling;
@@ -216,13 +278,14 @@ window.addEventListener('DOMContentLoaded', function () {
                 input.value = Number(input.value) + 1;
                 tickets[input.name]++;
                 updateValue();
-                //проверка на 10
+                showTotalPrice();
+                console.log(tickets);
             });
         });
         Array.prototype.forEach.call(buttonsMinus, buttonMinus => {
             buttonMinus.addEventListener('click', () => {
                 const input = buttonMinus.nextElementSibling;
-                if ((Number(input.value) == 0)  && (totalTickets == 0)) {
+                if ((Number(input.value) == 0) && (totalTickets == 0)) {
                     disabledMinus();
                     return;
                 } else if (Number(input.value) == 0) {
@@ -235,14 +298,69 @@ window.addEventListener('DOMContentLoaded', function () {
                 input.value = Number(input.value) - 1;
                 tickets[input.name]--;
                 updateValue();
-                //проверка на 0
+                showTotalPrice();
             });
         });
         form.classList.add('processed');
         buttonSubmit.addEventListener('click', event => {
+            const formInputs = form.querySelectorAll('.order-form__input');
+            const calendarInput = form.querySelector('.js-calendar');
+            const tourInput = form.querySelector('.js-tour-input');
+            const totalPrice = form.querySelector('.js-total-price');
             event.preventDefault();
-            console.log(prices[formType].adult * tickets.adult);
-            modalPopup.innerHTML = tickets.adult;
+            if ((ticketsInput.value !== '') && (calendarInput.value !== '') && (tourInput.value !== '')) {
+                console.log('Все поля заполнены');
+                for (let key in tickets) {
+                    if (tickets[key] > 0) {
+                        order[key] = tickets[key];
+                    }
+                }
+                order.subtotal = Number(totalPrice.textContent.replace(/\D+/g, ""));
+                for (let i = 0; i < formInputs.length; i++) {
+                    formInputs[i].value = '';
+                }
+                totalPrice.innerText = '';
+                showPopup(order);
+            } else {
+                Array.prototype.forEach.call(formInputs, formInput => {
+                    if (formInput.value == '') {
+                        formInput.classList.add('js-empty-input');
+                        formInput.parentNode.classList.add('js-input-error');
+                    }
+                });
+            }
+        });
+
+        closeModalBtn.addEventListener('click', () => {
+            hideModal(modalPopup);
+        });
+
+        overlay.addEventListener('click', () => {
+            hideModal(modalPopup);
+        });
+
+        submitModal.addEventListener('click', (event) => {
+            const successPopup = document.querySelector('.success-popup');
+            event.preventDefault();
+            if (telInput.value !== '') {
+                successPopup.classList.remove('hide');
+                let closeSuccess = () => {
+                    successPopup.classList.add('hide');
+                };
+                console.log(order);
+                setTimeout(closeSuccess, 1500);
+                setTimeout(hideModal, 1500, modalPopup);
+            } else {
+                telInput.classList.add('js-empty-input');
+                telInput.parentNode.classList.add('js-input-error');
+            }
+        });
+
+        telInput.addEventListener('click', () => {
+            if (telInput.classList.contains('js-empty-input')) {
+                telInput.classList.remove('js-empty-input');
+                telInput.parentNode.classList.remove('js-input-error');
+            }
         });
     });
 });
