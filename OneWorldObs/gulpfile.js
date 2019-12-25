@@ -15,7 +15,7 @@ const del = require("del");
 const babel = require("gulp-babel");
 
 gulp.task("js", function () {
-  gulp.src('src/js/script.js')
+  return gulp.src('src/js/script.js')
     .pipe(babel({
       presets: ['@babel/env']
     }))
@@ -78,8 +78,7 @@ gulp.task("copy", function () {
       "src/fonts/**/*.{woff,woff2}",
       "src/assets/**/*",
       "src/index.html",
-      "src/libs/**/*",
-      "src/js/script.js"
+      "src/libs/**/*"
     ], {
       base: "src"
     })
@@ -95,5 +94,5 @@ gulp.task("refresh", function (done) {
   done();
 });
 
-gulp.task("build", gulp.series("clean", "copy", "css", "server"));
+gulp.task("build", gulp.series("clean", "copy", "css", "js", "server"));
 gulp.task("start", gulp.series("css", "server"));
