@@ -9,8 +9,8 @@
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Actor&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/datepicker.min.css">
+    <link rel="stylesheet" href="libs/normalize.css">
+    <link rel="stylesheet" href="libs/datepicker.min.css">
     <link rel="stylesheet" href="css/style.min.css">
     <title>One World Observatory</title>
 </head>
@@ -148,7 +148,7 @@
                             <div class="order-form__input-block">
                                 <div class="order-form__result-block">
                                     <span class="order-form__input-name">date</span>
-                                    <input type="text" class="order-form__input order-form__input--date"
+                                    <input type="text" class="order-form__input order-form__input--date js-calendar"
                                         placeholder="June 27, 2019" required readonly id="st-calendar">
                                     <i class="fa fa-calendar fa-lg order-form__icon order-form__icon--calendar"
                                         aria-hidden="true"></i>
@@ -160,7 +160,7 @@
                                     <input type="text"
                                         class="order-form__input order-form__input--tour js-dropdown-input js-tour-input"
                                         placeholder="Select tour option" required readonly>
-                                    <i class="fa fa-chevron-down order-form__icon" aria-hidden="true"></i>
+                                    <i class="fa fa-chevron-down order-form__icon js-dropdown-icon" aria-hidden="true"></i>
                                 </div>
                                 <div class="order-form__dropdown hide dropdown-tour">
                                     <a href="#" class="dropdown-tour__item">Morning
@@ -214,13 +214,13 @@
                                     </a>
                                 </div>
                             </div>
-                            <div class="order-form__input-block">
+                            <div class="order-form__input-block js-ticket-input-block">
                                 <div class="order-form__result-block">
                                     <span class="order-form__input-name">tickets</span>
                                     <input type="text"
                                         class="order-form__input order-form__input--tickets js-ticket-input js-dropdown-input"
                                         placeholder="Select tickets" readonly required>
-                                    <i class="fa fa-chevron-down order-form__icon" aria-hidden="true"></i>
+                                    <i class="fa fa-chevron-down order-form__icon js-dropdown-icon" aria-hidden="true"></i>
                                 </div>
                                 <div class="order-form__dropdown hide dropdown-persons">
                                     <div class="dropdown-persons__item js-persons js-persons-adult">
@@ -284,6 +284,7 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="order-form__total-price hide js-total-price"></div>
                             </div>
                             <button type="submit" class="order-form__submit submit-btn js-submit-button">Book
                                 Now</button>
@@ -382,7 +383,7 @@
                             <div class="order-form__input-block">
                                 <div class="order-form__result-block">
                                     <span class="order-form__input-name">date</span>
-                                    <input type="text" class="order-form__input order-form__input--date"
+                                    <input type="text" class="order-form__input order-form__input--date js-calendar"
                                         placeholder="June 27, 2019" required id="pr-calendar">
                                     <i class="fa fa-calendar fa-lg order-form__icon order-form__icon--calendar"
                                         aria-hidden="true"></i>
@@ -394,7 +395,7 @@
                                     <input type="text"
                                         class="order-form__input order-form__input--tour js-tour-input js-dropdown-input"
                                         placeholder="Select tour option" required readonly>
-                                    <i class="fa fa-chevron-down order-form__icon" aria-hidden="true"></i>
+                                    <i class="fa fa-chevron-down order-form__icon js-dropdown-icon" aria-hidden="true"></i>
                                 </div>
                                 <div class="order-form__dropdown hide dropdown-tour">
                                     <a href="#" class="dropdown-tour__item">Morning
@@ -448,18 +449,18 @@
                                     </a>
                                 </div>
                             </div>
-                            <div class="order-form__input-block">
+                            <div class="order-form__input-block js-ticket-input-block">
                                 <div class="order-form__result-block">
                                     <span class="order-form__input-name">tickets</span>
                                     <input type="text"
                                         class="order-form__input order-form__input--tickets js-ticket-input js-dropdown-input"
                                         placeholder="Select tickets" readonly required>
-                                    <i class="fa fa-chevron-down order-form__icon" aria-hidden="true"></i>
+                                    <i class="fa fa-chevron-down order-form__icon js-dropdown-icon" aria-hidden="true"></i>
                                 </div>
                                 <div class="order-form__dropdown hide dropdown-persons">
                                     <div class="dropdown-persons__item js-persons js-persons-adult">
                                         <span class="dropdown-persons__name">
-                                            Adults <span class="dropdown-persons__coast">$28</span>
+                                            Adults <span class="dropdown-persons__coast">$37</span>
                                         </span>
                                         <div class="dropdown-persons__select-block">
                                             <button type="button" class="dropdown-persons__minus js-persons-btn-disabled js-persons-minus">
@@ -474,7 +475,7 @@
                                     </div>
                                     <div class="dropdown-persons__item js-persons js-persons-senior">
                                         <span class="dropdown-persons__name">
-                                            Senior <span class="dropdown-persons__coast">$26</span>
+                                            Senior <span class="dropdown-persons__coast">$35</span>
                                         </span>
                                         <div class="dropdown-persons__select-block">
                                             <button type="button" class="dropdown-persons__minus js-persons-btn-disabled js-persons-minus">
@@ -489,7 +490,7 @@
                                     </div>
                                     <div class="dropdown-persons__item js-persons js-persons-youth">
                                         <span class="dropdown-persons__name">
-                                            Youth <span class="dropdown-persons__coast">$14</span>
+                                            Youth <span class="dropdown-persons__coast">$20</span>
                                         </span>
                                         <div class="dropdown-persons__select-block">
                                             <button type="button" class="dropdown-persons__minus js-persons-btn-disabled js-persons-minus">
@@ -518,6 +519,7 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="order-form__total-price hide js-total-price"></div>
                             </div>
                             <button type="submit" class="order-form__submit submit-btn js-submit-button">Book
                                 Now</button>
@@ -557,20 +559,20 @@
                     You chose:
                 </div>
                 <div class="modal-popup__ticket js-modal-popup-ticket">
-                    <div class="modal-popup__ticket-item js-modal-popup-ticket-text"></div>
-                    <div class="modal-popup__ticket-item js-modal-popup-ticket-text"></div>
-                    <div class="modal-popup__ticket-item js-modal-popup-ticket-text"></div>
-                    <div class="modal-popup__ticket-item js-modal-popup-ticket-text"></div>
-                    <div class="modal-popup__ticket-item js-modal-popup-ticket-text"></div>
                 </div>
             </div>
         </div>
         <form action="#" class="modal-popup__tel-form tel-form">
-            <input type="tel" placeholder="Phone Number" required class="tel-form__input">
+            <div class="modal-popup__tel-block">
+                <input type="tel" placeholder="Phone Number" name="phone" required class="tel-form__input js-modal-tel">
+            </div>
             <button type="submit" class="modal-popup__submit submit-btn js-modal-popup-submit">Book now</button>
         </form>
     </div>
-    <script src="js/datepicker.min.js"></script>
+    <div class="success-popup hide">
+        <p>Thanks for your order!</p>
+    </div>
+    <script src="libs/datepicker.min.js"></script>
     <script src="js/script.js"></script>
 </body>
 
