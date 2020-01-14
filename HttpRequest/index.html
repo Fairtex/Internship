@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>HttpRequest</title>
+</head>
+
+<body>
+    <h1>Users</h1>
+    <div class="content"></div>
+    <div class="overlay hide"></div>
+    <div class="modal hide">
+        <button type="button" class="modal__close-btn"> Close </button>
+        <h2>User information</h2>
+        <div class="user-info"></div>
+        <h2>User posts</h2>
+        <ul class="user-posts"></ul>
+    </div>
+    <div class="modal-comments hide">
+        <button type="button" class="close-comments-btn"> Close </button>
+        <div class="post-title"></div>
+        <div class="post-text"></div>
+        <h3>Comments</h3>
+        <div class="all-comments"></div>
+        <h3>Add comment</h3>
+        <form action="#" class="comments-form">
+            <label for="auth-name" class="form-label">Name
+                <input type="text" class="form-input form-name" id="auth-name" name="name" placeholder="Name" required>
+            </label>
+            <label for="auth-email" class="form-label">Email
+                <input type="email" class="form-input form-email" id="auth-email" name="mail" placeholder="Email" required>
+            </label>
+            <textarea name="comment" id="comment-text" class="form-textarea" placeholder="Your comment"></textarea>
+            <button type="submit" class="form-submit">Submit</button>
+        </form>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
